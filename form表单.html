@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>form表单</title>
+</head>
+<body>
+<div class="login">
+  <form action="URL" method="post">
+    <div class="username">
+      <label for="username">姓名</label>
+      <input id="username" type="text" name="username" placeholder="输入用户名">
+    </div>
+    <div class="password">
+      <label for="password">密码</label>
+      <input id="password" type="password" name="password" placeholder="输入密码">
+    </div>
+    <div class="hobby">
+      <label >爱好：</label>
+      <input type="checkbox" name="hobby" value="read">读书
+      <input type="checkbox" name="hobby" value="write">写字
+      <input type="checkbox" name="hobby" value="study">学习
+    </div>
+    <div class="sex">
+        <label>性别：</label>
+        <input type="radio" name="sex" value="boy">男
+        <input type="radio" name="sex" value="girl">女
+    </div>
+    <div>
+        <label>取向：</label>
+        <input type="radio" name="orientation" value="boy">男
+        <input type="radio" name="orientation" value="girl">女
+    </div>
+    <div class="city">
+        <label>城市:</label>
+        <select name="city">
+            <option value="None" selected>--</option>
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+            <option value="guangzhou">广州</option>
+        </select>        
+    </div>
+    <div class="file">
+        <input type="file" name="myfile" accept="image/jpg">
+    </div>
+    <div class="textarea">
+        <textarea name="artical" placeholder="你可以在这里写东西"></textarea>
+        <input type="hidden" name="这里是隐藏的" value="123456">
+    </div>
+    <div>
+        <input type="submit" value="提交">
+    </div>
+    <div>
+        <input type="reset" value="清空">
+    </div>
+    </form>
+</div>    
+</body>
+</html>
