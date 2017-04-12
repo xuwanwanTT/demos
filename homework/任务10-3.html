@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务10-3</title>
+	<style>
+		/*body {
+			margin: 0;
+		}
+		body,
+		html {
+			height: 100%;
+		}
+		.layout {
+			height: 100%;
+			background-color: rgba(0,0,0,0.4);
+			padding: 1px;
+		}   让页面全屏的方法，下面是使用fixed的方法。*/
+
+		.content {
+			position: fixed;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.4);
+		}
+		.part1 {
+			width: 600px;
+			margin: 0 auto;
+		}
+
+		.part2 {
+			width: 600px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 4px 8px 0 black;
+
+		}
+
+		.head span {
+			float: right;
+			font-size: 18px;
+			cursor: pointer;
+			margin-right: 10px;
+			margin-top: 20px;
+
+		}
+
+		.head {
+			background-color: green;
+			color: white;
+			overflow: hidden;
+			padding-left: 10px;
+		}
+
+		.text {
+			padding-left: 10px;
+			background-color: white;
+			overflow: hidden;
+			padding-top: 30px;
+			padding-bottom: 30px;
+		}
+
+		.tail {
+			padding-left: 10px;
+			background-color: green;
+			color: white;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<div class="layout">
+		
+		<div class="part1">
+			<h1>这是页面内容</h1>
+			<h1>这是页面内容</h1>
+			<h1>这是页面内容</h1>
+		</div>
+		<div class="content">
+			<div class="part2">
+				<div class="head">
+					<span>×</span>
+					<h2>头部</h2>
+				</div>
+				<div class="text">
+					<p>这是内容</p>
+					<p>这是内容</p>
+				</div>
+				<div class="tail">
+					<h4>尾部</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
