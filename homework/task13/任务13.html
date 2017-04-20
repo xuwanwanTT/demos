@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+      .layout {
+        width: 200px;
+        height: 100px;
+        border: 1px solid #888;
+        margin: 20px 20px;
+        position: relative;
+      }
+
+      .first::before {
+        content: '';
+        width: 0;
+        height: 0;
+        display: inline-block;
+        border-left: 20px solid #888;
+        border-top: 20px solid transparent;
+        transform: rotateZ(135deg);
+        position: absolute;
+        top: -11px;
+        left: 20px;
+      }
+
+      
+      .second::before {
+        content: '';
+        width: 0;
+        height: 0;
+        display: inline-block;
+        border-left: 20px solid transparent;
+        border-top: 20px solid red;
+        position: absolute;
+        left: 181px;
+        top: -1px;
+      }
+
+     
+
+      .third::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border-left: 1px solid #888;
+        border-top: 1px solid #888;
+        transform: rotateZ(45deg);
+        background: white;
+        position: absolute;
+        top: -11px;
+        left: 20px;
+
+
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="layout first"></div>
+    <div class="layout second"></div>
+    <div class="layout third"></div>
+  </body>
+</html>
