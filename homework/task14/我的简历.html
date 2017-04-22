@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .layout {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .header,
+    .work,
+    .edu,
+    .point {
+      margin-bottom: 30px;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      border: 1px solid;
+      border-radius: 50%;
+      background-color: black;
+      color: white;
+      position: relative;
+    }
+
+    .first {
+      position: absolute;
+      left: 20px;
+      top: -10px;
+      font-size: 40px;
+    }
+
+    .second {
+      position: absolute;
+      left: 55px;
+      top: -100px;
+      font-size: 100px;
+    }
+
+    .last {
+      position: absolute;
+      left: 100px;
+      top: 40px;
+      font-size: 40px;
+    }
+
+    .header div {
+      float: left;
+      margin: 10px 33px;
+      
+    }
+
+    .header::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .header li {
+      list-style-type: none;
+      margin-top: 10px;
+    }
+
+    .header ul {
+      padding-left: 0;
+    }
+
+    .work h4,
+    .edu h4,
+    .point div h4 {
+      width: 300px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #eee;
+    }
+
+    .work li,
+    .edu li {
+      margin-left: -26px;
+      padding-left: 26px;
+      margin-top: 30px;
+    }
+
+    .work ul::before {
+      content:'';
+      width: 0;
+      height: 100px;
+      display: block;
+      border: 1px solid #888;
+      float: left;
+      margin-left: -42px;
+      margin-top: 9px;
+    }
+
+    .edu ul::before {
+      content:'';
+      width: 0;
+      height: 100px;
+      display: block;
+      border: 1px solid #888;
+      float: left;
+      margin-left: -42px;
+      margin-top: 9px;
+    }
+
+    .point div {
+      float: left;
+      width: 50%;
+    }
+
+    .point::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .point div p::before {
+      content: '+';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid;
+      border-radius: 50%;
+      text-align: center;
+      margin-right: 30px;
+      margin-top: 30px;
+    }
+
+    .skill p {
+      float: left;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <div class="header">
+      <div class="logo">
+        <p class="first">X</p>
+        <P class="second">/</P>
+        <p class="last">F</p>
+      </div>
+      <div class="name">
+        <h1>肖丰</h1>
+        <p>申请职位：前端工程师</p>
+      </div>
+      <div>
+        <h4>个人信息</h4>
+        <ul>
+          <li>地址：湖北孝感</li>
+          <li>电话：1234</li>
+          <li>邮箱：xfxuwanwan@gmail.com</li>
+          <li>网址：www.****</li>
+        </ul>
+      </div>
+    </div>
+    <div class="work">
+      <h4>工作经验</h4>
+      <ul>
+        <li>pass</li>
+        <li>pass</li>
+        <li>pass</li>
+      </ul>
+    </div>
+    <div class="edu">
+      <h4>教育程度</h4>
+      <ul>
+        <li>pass</li>
+        <li>pass</li>
+        <li>pass</li>
+      </ul>
+    </div>
+    <div class="point">
+      <div>
+        <h4>课外活动</h4>
+        <p>pass</p>
+        <p>pass</p>
+      </div>
+      <div class="skill">
+        <h4>个人技能</h4>
+        <p>HTML&CSS</p>
+        <p>JQUERY</p>
+        <p>JAVASCRIPT</p>
+        <p>PHOTOSHOP</p>
+        <p>SLIM</p>
+        <p>ILLUSTARTOR</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
