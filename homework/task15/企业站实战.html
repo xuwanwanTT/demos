@@ -4,23 +4,40 @@
   <meta charset="UTF-8">
   <title>企业站实战</title>
   <style>
-    .layout {
+    body {
+      margin: 0;
+      padding: 0;
+      margin-top: -200px;
+    }
+
+    #navi {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1;
+      padding: 10px 0;
+      background: rgba(3,3,3,.5);
+      box-shadow: 0 3px 3px rgba(3,3,3,.2);
+}
+
+    }
+
+    .navi {
       max-width: 1140px;
       margin: 0 auto;
     }
 
-    .navi {
-      margin-bottom: 30px;
-    }
-
     .navi > a {
       float: right;
-      margin: 20px 10px 20px 10px ;
+      margin: 40px 10px 20px 0px ;
+      color: white;
     }
 
     a:first-child {
       float: left;
-      margin: 20px 0 20px 30px ;
+      margin: 40px 0 20px 0px ;
+      color: yellow;
     }
 
     .navi::after {
@@ -29,26 +46,132 @@
       clear: both;
     }
 
-    #header {
-      background-image: url();
-      width: 100%;
-      text-align: center;
-    }
-
     .bgr {
-      background-image: url(http://pic4.nipic.com/20091121/3764872_215617048242_2.jpg);
-      width: 100%;
-      height: 600px;
+      background-image: url(http://img1.3lian.com/2015/w7/85/d/21.jpg);
       background-size: cover;
+      text-align: center;
+      min-height: 700px;
+      max-width: 100%;
+      padding-top: 300px;
     }
 
+    .bgr h1 {
+      margin-top: 200px;
+      color: white;
+    }
 
+    .bgr p {
+      font-size: 72px;
+      margin-top: 30px;
+      color: white;
+    }
+
+    #header a {
+      display: inline-block;
+      padding: 20px;
+      border: 1px solid #ffff37;
+      background-color: #ffff37;
+      color: white;
+      border-radius: 3px;
+      margin-bottom: 100px;
+    }
+
+    #header a:hover {
+      background-color: yellow;
+    }
+
+    .layout {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .services {
+      padding: 150px 0;
+    }
+
+    .services h1 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .services p:nth-child(2) {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #888;
+    }
+
+    .services .part {
+      float: left;
+      width: 350px;
+      text-align: center;
+      margin-right: 30px;
+    }
+
+    .services::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .services .part p {
+      font-size: 14px;
+      color: #888;
+    }
+
+    .portfolio {
+      padding: 150px 0;
+      background-color: #f0f0f0;
+      margin: 0 auto;
+    }
+
+    .portfolio h1 {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    .portfolio h3 {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    .portfolio .part p {
+      margin-top: 0;
+      color: #888;
+    }
+
+    .portfolio p:nth-child(2) {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #888;
+    }
+
+    .portfolio img {
+     height: 200px;
+     width: 300px;
+    }
+
+    .portfolio .part {
+      float: left;
+      width: 350px;
+      text-align: center;
+      margin-right: 30px;
+    }
+
+    .portfolio:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .portfolio .part img:hover {
+      opacity: .6;
+    }
 
   </style>
 </head>
 <body>
-  <div class="layout">
-    <div class="bgr">
+  <div class="bgr">
+    <div id="navi">
       <div class="navi">
         <a href="#">首页</a>
         <a href="#">SERVICES</a>
@@ -57,30 +180,70 @@
         <a href="#">part4</a>
         <a href="#">part5</a>
       </div>
-      <div id="header">
-        <h1>Welcome To Our Studio!</h1>
-        <p>IT'S NICE TO MEET YOU</p>
-        <a href="#">TELL ME MORE</a>
-      </div>
     </div>
+    <div id="header">
+      <h1>Welcome To Our Studio!</h1>
+      <p>IT'S NICE TO MEET YOU</p>
+      <a href="#">TELL ME MORE</a>
+    </div>
+  </div>
+  <div class="layout">
     <div class="services">
-      <h>SERVICES</h>
-      <p>Lorem ipsum dolor sit amet consectetur.<p>
-      <div>
+      <h1>SERVICES</h1>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="part">
         <img src="" alt="">
         <h3>E-Commerce</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>      
       </div>
-      <div>
+      <div class="part">
         <img src="" alt="">
         <h3>Responsive Design</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>      
       </div>
-      <div>
+      <div class="part">
         <img src="" alt="">
         <h3>Web Security</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>      
       </div>
+    </div>
+  </div>
+  <div class="portfolio">
+    <div class="layout">
+      <h1>PORTFOLIO</h1>
+      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div class="part">
+        <a href="#">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        </a>
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>
+      <div class="part">
+        <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>
+      <div class="part">
+        <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>
+      <div class="part">
+        <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>
+      <div class="part">
+        <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>
+      <div class="part">
+        <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" alt="">
+        <h3>Round Icons</h3>
+        <p>Graphic Design</p>
+      </div>     
     </div>
   </div>
 </body>
