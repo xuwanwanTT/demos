@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>玩玩写的csgo介绍</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .bgr {
+      background-image: url(http://imgsrc.baidu.com/forum/w%3D580/sign=3aa1ef4aaf51f3dec3b2b96ca4eff0ec/fb56252dd42a2834932c118b5bb5c9ea14cebfb3.jpg);
+      width: 100%;
+      height: 800px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav {
+      width: 100%;
+      height: 51px;
+      background: #888;
+      opacity: .7;
+      border: 1px solid #888;
+      position: fixed;
+      z-index: 3;
+    }
+
+    .bgr .part a {
+      font-size: 24px; 
+    }
+
+    .bgr .part {
+      position: fixed;
+      left: 0;
+      top: 10px;
+      margin-left: 100px;
+    }
+
+    .bgr .parts a {
+      margin: 0 15px;
+    }
+
+    .bgr .parts {
+      position: fixed;
+      right: 0;
+      top: 15px;
+      margin-right: 100px;
+    }
+
+    .bgr .cnt {
+      text-align: center;
+      padding-top: 20%;
+      color: white;
+    }
+
+    .bgr .cnt a {
+      background: #FFFF37;
+      border: 1px solid #FFFF37;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 30px;
+      display: inline-block;
+    }
+
+    .bgr .cnt a:hover {
+      background-color: yellow;
+    }
+
+    .part1,
+    .part2,
+    .part3,
+    .part4,
+    .part5 {
+      text-align: center;
+    }
+
+    .part1 h1,
+    .part2 h1,
+    .part3 h1,
+    .part4 h1 {
+      margin-top: 100px;
+    }
+
+    .part1 h2,
+    .part2 h2,
+    .part3 h2,
+    .part4 h2 {
+      margin-bottom: 100px;
+      color: #888;
+    }
+
+    .layout {
+      max-width: 1140px;
+      margin: 100px auto;
+    }
+
+    .part1 .cnt,
+    .part4 .cnt {
+      float: left;
+      width: 350px;
+      margin:0 15px;
+    }
+
+    .clearfixed::after {
+      content:'';
+      display: block;
+      clear: both;
+    }
+
+    .part1 .cnt img,
+    .part4 .cnt img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .part1 .cnt p,
+    .part2 .cnt p,
+    .part4 .cnt p {
+      color: #888;
+      margin-top: -15px;
+    }
+
+    .part2 img {
+      width: 300px;
+      height: 300px;
+    }
+
+    .part2 a {
+      position: relative;
+    }
+
+    .part2 .pic1 {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .part2 .pic1:hover {
+      opacity: .7;
+      transition-duration: 1s;
+    }
+
+    .part2 .cnt {
+      float: left;
+      width: 350px;
+      margin: 0 15px;
+    }
+
+    .part2 .cnt h4 {
+      margin-top: 0;
+    }
+
+    .part2 .cnt p {
+      margin-bottom: 50px;
+    }
+
+    .part2,
+    .part4 {
+      background-color: #f0f0f0;
+      padding: 50px 0;
+    }
+
+    .part3 .cnt img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #d0d0d0;
+    }
+    .part3 .cnt {
+      position: relative;
+      padding: 0 0 125px 0;
+    }
+
+    .part3 .cnt .intro {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 30em;
+      margin-right: 100px;
+      text-align: right;
+    }
+
+    .part3 .cnt:nth-child(even) .intro {
+      left: 50%;
+      margin-left: 100px;
+      text-align: left;
+    }
+
+    .part3 .cnt::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 2px solid #888;
+      margin-left: 1px;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .part3 .last {
+      width: 150px;
+      height: 150px;
+      border: 5px solid #888;
+      border-radius: 50%;
+      background-color: yellow;
+      color: white;
+      margin: 0 auto;
+    }
+
+    .part3 .last h3 {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto;
+      padding: 35px 0;
+    }
+
+    .part4 .intro {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .ad img {
+      width: 240px;
+      height: 100px;
+      opacity: .7;
+      margin-right: 50px;
+    }
+
+    .ad a {
+      color: red;
+    }
+
+    .ad a:last-child img {
+      margin-right: 0;
+    }
+
+    .ad p {
+      text-align: center;
+      color: white;;
+    }
+
+    .ad p:hover {
+      color: pink;
+    }
+    .part5 {
+      background-image: url(http://imgsrc.baidu.com/forum/w=580/sign=4fa8375b93eef01f4d1418cdd0fe99e0/1eb32fe93901213f4329c0e353e736d12f2e951f.jpg);
+      width: 100%;
+      height: 800px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .part5 h1 {
+      padding-top: 100px;
+      color: white;
+    }
+
+    .part5 h2 {
+      color: #888;
+    }
+
+    .part5 .part {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .part5 .arti {
+      float: left;
+    }
+
+    .part5 .part input {
+      width: 550px;
+      height: 50px;
+    }
+
+    .part5 .arti #arti {
+      width: 550px;
+      height: 222px;
+    }
+
+    .part5 .element {
+      margin-bottom: 30px;
+      text-align: right;
+    }
+
+    .part5 .submit {
+      margin-top: -50px;
+    }
+
+    .part5 .submit input {
+      padding: 10px 30px;
+      background: #FFFF37;
+      border: 1px solid #FFFF37;
+      border-radius: 2px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .part5 .submit input:hover {
+      background: yellow;
+      cursor:pointer;
+    }
+
+    .footer p,
+    .footer .communi,
+    .footer .state {
+      float: left;
+      width: 350px;
+      margin: 0 15px 10px ;
+    }
+
+    .footer p,
+    .footer .state {
+      margin-top: 25px;
+    }
+
+    .footer .state a {
+      color: yellow;
+    }
+
+    .footer .layout {
+      margin: 0 auto;
+    }
+
+    @font-face {
+      font-family: 'iconfont';  /* project id 289841 */
+      src: url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.eot');
+      src: url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.eot?#iefix') format('embedded-opentype'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.woff') format('woff'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.ttf') format('truetype'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.svg#iconfont') format('svg');
+    }
+
+    .footer .iconfont,
+    .part4 .iconfont {
+      font-family:"iconfont" !important;
+      font-size: 50px;
+      font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color:black;
+    }
+
+    .footer .communi {
+      text-align: center;
+      top: 0;
+    }
+
+    .footer .communi span:hover,
+    .part4 .communi span:hover {
+      color: yellow;
+    }
+
+    .footer .state {
+      text-align: right;
+    }
+
+    .footer .state a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="bgr">
+    <nav>
+      <div class="part">
+        <a href="#">首页</a>
+      </div>
+      <div class="parts">
+        <a href="#">初遇</a>
+        <a href="#">走进</a>
+        <a href="#">历史</a>
+        <a href="#">人员</a>
+        <a href="#">联系</a>
+      </div>
+    </nav>
+    <div class="cnt">
+      <h1>Let's play!</h1>
+      <h2>Counter-Strike：Global Offensive</h2>
+      <a href="#">Tell Me More</a>
+    </div>
+  </div>
+  <div class="part1">
+    <h1>初遇CSGO</h1>
+    <h2>在这里，了解csgo</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <img src="http://i1.hdslb.com/bfs/archive/3bf121e7eed2c69cc43661dad848ee81d78c26d0.jpg" alt="人物">
+        <h4>character</h4>
+        <p>游戏将玩家分为反恐精英（Counter Terrorists/CT）阵营与恐怖份子（Terrorists/T）阵营两队，每个队伍必须在一个地图上进行多回合的战斗。赢得回合的方法是达到该地图要求的目标，或者是完全消灭敌方玩家。</p>
+      </div>
+      <div class="cnt">
+        <img src="http://ol04.tgbusdata.cn/v2/thumb/jpg/MGQ2ZiwwLDAsNCwzLDEsLTEsMCxyazUw/u/olpic.tgbusdata.cn/uploads/allimg/160301/269-1603011605333R.jpg" alt="武器">
+        <h4>weapon</h4>
+        <p>可以购买AK-47(仅T可买)，M4A4(仅CT可买)，AWP，Desert Eagle等武器进行战斗，死亡武器会掉落，所以，计算好你的经济很重要。</p>
+      </div>
+      <div class="cnt">
+        <img src="http://img0w.pcgames.com.cn/pcgames/1409/10/spcgroup/width_640,qua_30/4310722_1.jpg" alt="地图">
+        <h4>map</h4>
+        <p>游戏保留了前作dust2，train，inferno，assault，office等地图的外观，同时还加入新的地图，空间和细节都经过了重制，改善对战双方在地形上的平衡性。当然，你依旧可以制作你自己的地图。</p>
+      </div>
+    </div>
+  </div>
+  <div class="part2">
+    <h1>走进CSGO</h1>
+    <h2>在这里，发现更大的乐趣</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbm5otvGn2vhp6FF1SZvUFSelezro7UayD0Jk9VbuNp4pfXRTKrw" class="pic2" alt="">
+        </a>
+        <h4>武器</h4>
+        <p>所有武器介绍</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://steamuserimages-a.akamaihd.net/ugc/429320160979732446/9B2E6DC6228172BC6F98A7C21AFE82B2C763EEB4/" class="pic2" alt="">
+        </a>
+        <h4>地图</h4>
+        <p>所有地图介绍</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://ih1.redbubble.net/image.186786771.7449/flat,800x800,075,t.jpg" class="pic2" alt="">
+        </a>
+        <h4>人物</h4>
+        <p>所有人物介绍</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://i0.wp.com/fiercetag.com/wp-content/uploads/2017/02/FSy-9NPU_400x400.png" class="pic2" alt="">
+        </a>
+        <h4>战队</h4>
+        <p>所有战队介绍</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ9so_PZfPkwxaRKxF1zUoTIiZ6PSMPSjwKUn8kf3l0N0TQdgEjAQ" class="pic2" alt="">
+        </a>
+        <h4>赛事</h4>
+        <p>所有赛事介绍</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ih0.redbubble.net/image.186752738.5835/flat,800x800,075,t.jpg" class="pic1" alt="">
+          <img src="https://steamuserimages-a.akamaihd.net/ugc/900985983900794301/EB22895B39FEDA4E4A0FB909A7AA3C8058155908/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C512:*" class="pic2" alt="">
+        </a>
+        <h4>技巧</h4>
+        <p>想获得力量吗</p>
+      </div>
+    </div>
+  </div>
+  <div class="part3">
+    <h1>CS历史</h1>
+    <h2>曾经火遍全球的cs，你想了解么</h2>
+    <div class="layout">
+      <div class="cnt">
+        <div class="intro">
+          <time>2012</time>
+          <h3>反恐精英：全球攻势</h3>
+          <p>《反恐精英：全球攻势》（简称CS:GO）是一款由VALVE与Hidden Path Entertainment合作开发的第一人称射击游戏，于2012年8月21日在欧美地区正式发售，为《反恐精英》系列游戏的第四款作品（不包括Neo和Online等衍生作品）。</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>2004-2010</time>
+          <h3>反恐精英：起源</h3>
+          <p>2004年10月7日，一开始使用起源2004引擎。具有新的物理系统、渲染系统和全新的地图。《反恐精英：起源2010》是用新起源引擎制作的重制版，比2004版拥有更多的功能。2010年5月8日发布，目前最新版本是V75版本。</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>2003</time>
+          <h3>反恐精英CS1.6</h3>
+          <p>《反恐精英cs1.6》（Counter-Strike，简称CS）是由Valve Software公司研发的一款第一人称射击类游戏。于2003年9月9日正式发行，属于《半条命》（Half-Life）的其中一个游戏模组（MOD）衍生而成的游戏，并且可以使用steam联机。</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>1999-2002</time>
+          <h3>半条命：反恐精英</h3>
+          <p>《半条命：反恐精英》Beta 1.0-Beta7.1，于1999年6月19日开始更新，2000年9月13日结束更新。主要完善了《反恐精英》的本体，平衡性等也是在这个时期建立。《半条命：反恐精英》V1.0-V1.5，于2000年11月8日开始更新，2002年6月12日停止更新。完善了游戏的细部，在1.5版本时游戏已经具备很强的可玩性。但这个时候《反恐精英》仍为游戏模组而非独立游戏。</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="last">
+        <h3>END! GOOD GAME!</h3>
+      </div>
+    </div>
+  </div>
+  <div class="part4">
+    <h1>结束啦</h1>
+    <h2>这里是玩玩写的csgo介绍~希望你能喜欢~然后贴上一些联系方式~</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>虚玩玩</h4>
+        <p>这个页面的开发者</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>FNATIC</h4>
+        <p>世界第一战队，包赢，包爽！</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+      <div class="cnt">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Solid_black.svg/1024px-Solid_black.svg.png" alt="">
+        <h4>？？？</h4>
+        <p>我编不下去了</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+    </div>
+    <p class="intro">啊，这个页面写了好久，最后总算是写出来了，然后，看着这600+行代码，好乱啊~最后，图片都是盗来的应该没有事吧~下面贴出赞助商~</p>
+  </div>
+  <div class="ad">
+    <div class="layout clearfixed">
+      <a href="https://www.baidu.com">
+        <img src="baidu.png" alt="baidu">
+      </a>
+      <a href="">
+        <img src="jirengu.png" alt="jirengu">
+      </a>
+      <a href="">
+        <img src="alibaba.png" alt="alibaba">
+      </a>
+      <a href="http://www.csgo.com.cn">
+        <img src="csgo.png" alt="csgo">
+      </a>
+    </div>
+    <p>显示不出来是因为根本就没有赞助啊~</p>
+  </div>
+  <div class="part5">
+    <h1>告诉我</h1>
+    <h2>你也喜欢csgo么？</h2>
+    <form action="#" method="post">
+      <div class=" layout clearfixed">
+      <div class="part">
+        <div class="element">
+          <input id="name" type="text" name="name" placeholder="你的名字">
+        </div>
+        <div class="element">
+          <input id="email" type="text" name="email" placeholder="你的邮箱">
+        </div>
+        <div class="element">
+          <input id="phone" type="text" name="phone" placeholder="你的电话">
+        </div>
+      </div>
+        <div class="arti">
+          <textarea name="arti" id="arti" placeholder="写下你的想法"></textarea>
+        </div>
+      </div>
+      <div class="submit">
+        <input type="submit" value="SEND MESSAGE">
+      </div>
+    </form> 
+  </div>
+  <div class="footer">
+    <div class="layout clearfixed">
+      <p>Copyright © 2017</p>
+      <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      <div class="state">
+        <a href="">Privacy Policy</a>
+        <a href="">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>待定</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .bgr {
+      background-image: url(http://img1.3lian.com/2015/w7/85/d/21.jpg);
+      width: 100%;
+      height: 800px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    nav {
+      width: 100%;
+      height: 51px;
+      background: #888;
+      opacity: .7;
+      border: 1px solid #888;
+      position: fixed;
+      z-index: 3;
+    }
+
+    .bgr .part a {
+      font-size: 24px; 
+    }
+
+    .bgr .part {
+      position: fixed;
+      left: 0;
+      top: 10px;
+      margin-left: 100px;
+    }
+
+    .bgr .parts a {
+      margin: 0 15px;
+    }
+
+    .bgr .parts {
+      position: fixed;
+      right: 0;
+      top: 15px;
+      margin-right: 100px;
+    }
+
+    .bgr .cnt {
+      text-align: center;
+      padding-top: 20%;
+      color: white;
+    }
+
+    .bgr .cnt a {
+      background: #FFFF37;
+      border: 1px solid #FFFF37;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-top: 30px;
+      display: inline-block;
+    }
+
+    .bgr .cnt a:hover {
+      background-color: yellow;
+    }
+
+    .part1,
+    .part2,
+    .part3,
+    .part4,
+    .part5 {
+      text-align: center;
+    }
+
+    .part1 h1,
+    .part2 h1,
+    .part3 h1,
+    .part4 h1 {
+      margin-top: 100px;
+    }
+
+    .part1 h2,
+    .part2 h2,
+    .part3 h2,
+    .part4 h2 {
+      margin-bottom: 100px;
+      color: #888;
+    }
+
+    .layout {
+      max-width: 1140px;
+      margin: 100px auto;
+    }
+
+    .part1 .cnt,
+    .part4 .cnt {
+      float: left;
+      width: 350px;
+      margin:0 15px;
+    }
+
+    .clearfixed::after {
+      content:'';
+      display: block;
+      clear: both;
+    }
+
+    .part1 .cnt img,
+    .part4 .cnt img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+
+    .part1 .cnt p,
+    .part2 .cnt p,
+    .part4 .cnt p {
+      color: #888;
+      margin-top: -15px;
+    }
+
+    .part2 img {
+      width: 300px;
+      height: 300px;
+    }
+
+    .part2 a {
+      position: relative;
+    }
+
+    .part2 .pic1 {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .part2 .pic1:hover {
+      opacity: .7;
+      transition-duration: 1s;
+    }
+
+    .part2 .cnt {
+      float: left;
+      width: 350px;
+      margin: 0 15px;
+    }
+
+    .part2,
+    .part4 {
+      background-color: #f0f0f0;
+      padding: 50px 0;
+    }
+
+    .part3 .cnt img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #d0d0d0;
+    }
+    .part3 .cnt {
+      position: relative;
+      padding: 0 0 125px 0;
+    }
+
+    .part3 .cnt .intro {
+      position: absolute;
+      top: 0;
+      right: 50%;
+      width: 30em;
+      margin-right: 100px;
+      text-align: right;
+    }
+
+    .part3 .cnt:nth-child(even) .intro {
+      left: 50%;
+      margin-left: 100px;
+      text-align: left;
+    }
+
+    .part3 .cnt::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-left: 2px solid #888;
+      margin-left: 1px;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .part3 .last {
+      width: 150px;
+      height: 150px;
+      border: 5px solid #888;
+      border-radius: 50%;
+      background-color: yellow;
+      color: white;
+      margin: 0 auto;
+    }
+
+    .part3 .last h3 {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto;
+      padding: 35px 0;
+    }
+
+    .part4 .intro {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    .ad img {
+      width: 240px;
+      height: 100px;
+      opacity: .7;
+      margin-right: 50px;
+    }
+
+    .ad a {
+      color: red;
+    }
+
+    .ad a:last-child img {
+      margin-right: 0;
+    }
+    .part5 {
+      background-image: url(http://img1.3lian.com/2015/w7/85/d/21.jpg);
+      width: 100%;
+      height: 800px;
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    .part5 h1 {
+      padding-top: 100px;
+      color: white;
+    }
+
+    .part5 h2 {
+      color: #888;
+    }
+
+    .part5 .part {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .part5 .arti {
+      float: left;
+    }
+
+    .part5 .part input {
+      width: 550px;
+      height: 50px;
+    }
+
+    .part5 .arti #arti {
+      width: 550px;
+      height: 222px;
+    }
+
+    .part5 .element {
+      margin-bottom: 30px;
+      text-align: right;
+    }
+
+    .part5 .submit {
+      margin-top: -50px;
+    }
+
+    .part5 .submit input {
+      padding: 10px 30px;
+      background: #FFFF37;
+      border: 1px solid #FFFF37;
+      border-radius: 2px;
+      font-size: 20px;
+      color: white;
+    }
+
+    .part5 .submit input:hover {
+      background: yellow;
+      cursor:pointer;
+    }
+
+    .footer p,
+    .footer .communi,
+    .footer .state {
+      float: left;
+      width: 350px;
+      margin: 0 15px 10px ;
+    }
+
+    .footer p,
+    .footer .state {
+      margin-top: 25px;
+    }
+
+    .footer .state a {
+      color: yellow;
+    }
+
+    .footer .layout {
+      margin: 0 auto;
+    }
+
+    @font-face {
+      font-family: 'iconfont';  /* project id 289841 */
+      src: url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.eot');
+      src: url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.eot?#iefix') format('embedded-opentype'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.woff') format('woff'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.ttf') format('truetype'),
+      url('//at.alicdn.com/t/font_arnnmlaqf5n4s4i.svg#iconfont') format('svg');
+    }
+
+    .footer .iconfont,
+    .part4 .iconfont {
+      font-family:"iconfont" !important;
+      font-size: 50px;
+      font-style:normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      color:black;
+    }
+
+    .footer .communi {
+      text-align: center;
+      top: 0;
+    }
+
+    .footer .communi span:hover,
+    .part4 .communi span:hover {
+      color: yellow;
+    }
+
+    .footer .state {
+      text-align: right;
+    }
+
+    .footer .state a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="bgr">
+    <nav>
+      <div class="part">
+        <a href="#">part</a>
+      </div>
+      <div class="parts">
+        <a href="#">part1</a>
+        <a href="#">part2</a>
+        <a href="#">part3</a>
+        <a href="#">part4</a>
+        <a href="#">part5</a>
+      </div>
+    </nav>
+    <div class="cnt">
+      <h1>Welcome To Our Studio!</h1>
+      <h2>IT'S NICE TO MEET YOU</h2>
+      <a href="#">Tell Me More</a>
+    </div>
+  </div>
+  <div class="part1">
+    <h1>world</h1>
+    <h2>worldworld</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      </div>
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      </div>
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+      </div>
+    </div>
+  </div>
+  <div class="part2">
+    <h1>world</h1>
+    <h2>worldworld</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+      <div class="cnt">
+        <a href="#">
+          <img src="https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=3483557254,342520694&fm=58" class="pic1" alt="">
+          <img src="http://img1.3lian.com/2015/w7/85/d/21.jpg" class="pic2" alt="">
+        </a>
+        <h4>world</h4>
+        <p>worldworld</p>
+      </div>
+    </div>
+  </div>
+  <div class="part3">
+    <h1>world</h1>
+    <h2>worldworld</h2>
+    <div class="layout">
+      <div class="cnt">
+        <div class="intro">
+          <time>2017-2017</time>
+          <h3>world</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>2017-2017</time>
+          <h3>world</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>2017-2017</time>
+          <h3>world</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="cnt">
+        <div class="intro">
+          <time>2017-2017</time>
+          <h3>world</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        </div>
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+      </div>
+      <div class="last">
+        <h3>BE PART OF OUR STORY!</h3>
+      </div>
+    </div>
+  </div>
+  <div class="part4">
+    <h1>world</h1>
+    <h2>worldworld</h2>
+    <div class="layout clearfixed">
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+      <div class="cnt">
+        <img src="http://cdn-qn0.jianshu.io/assets/default_avatar/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240" alt="">
+        <h4>world</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+        <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      </div>
+    </div>
+    <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+  </div>
+  <div class="ad">
+    <div class="layout clearfixed">
+      <a href="//www.baidu.com">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493380360052&di=330b7ebaa105ded0c3378efea9bd0b13&imgtype=0&src=http%3A%2F%2Fwww.logoing.net%2Fwp-content%2Fuploads%2F2012%2F08%2Fbaidulogo1.jpg" alt="baidu">
+      </a>
+      <a href="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493975270&di=a3c286ee784a7166c6f965091fd29b8f&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.lgstatic.com%2Fthumbnail_300x300%2Fimage1%2FM00%2F38%2F91%2FCgYXBlWmD52AY8R1AAB5uZ99Pqo131.jpg%3Fcc%3D0.09644223633222282" alt="jirengu">
+      </a>
+      <a href="">
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1493975328&di=8c02b01288fcf34d8e773b79b59d0da1&imgtype=jpg&er=1&src=http%3A%2F%2Fimg07.huishangbao.com%2Ffile%2Fupload%2F201604%2F19%2F11%2F11-47-32-98-346938.jpg" alt="alibaba">
+      </a>
+      <a href="//www.csgo.com.cn">
+        <img src="http://img4.imgtn.bdimg.com/it/u=2876723258,2416208964&fm=23&gp=0.jpg" alt="csgo">
+      </a>
+    </div>
+  </div>
+  <div class="part5">
+    <h1>world</h1>
+    <h2>worldworld</h2>
+    <form action="#" method="post">
+      <div class=" layout clearfixed">
+      <div class="part">
+        <div class="element">
+          <input id="name" type="text" name="name" placeholder="你的名字">
+        </div>
+        <div class="element">
+          <input id="email" type="text" name="email" placeholder="你的邮箱">
+        </div>
+        <div class="element">
+          <input id="phone" type="text" name="phone" placeholder="你的电话">
+        </div>
+      </div>
+        <div class="arti">
+          <textarea name="arti" id="arti" placeholder="写下你的建议"></textarea>
+        </div>
+      </div>
+      <div class="submit">
+        <input type="submit" value="SEND MESSAGE">
+      </div>
+    </form> 
+  </div>
+  <div class="footer">
+    <div class="layout clearfixed">
+      <p>Copyright © Your Website 2014</p>
+      <div class="communi">
+        <a href="">
+          <span class="iconfont">&#xe698;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe621;</span>
+        </a>
+        <a href="">
+          <span class="iconfont">&#xe65b;</span>
+        </a>
+      </div>
+      <div class="state">
+        <a href="">Privacy Policy</a>
+        <a href="">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
