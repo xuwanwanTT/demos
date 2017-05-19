@@ -23,7 +23,7 @@ function getRandStr(n){
   var str = "0123456789abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var arr = []
   for(var i = 0; i < n; i++){
-    arr[i] = str[Math.floor(Math.random()*64)]
+    arr[i] = str[Math.floor(Math.random()*62)]
   }
   return arr.join('')
 }
@@ -48,7 +48,7 @@ function getRandColor(){
   var arr = []
   var str = "0123456789abcdef"
   for(var i = 0; i < 6; i++){
-    arr[i] = str[Math.floor(Math.random()*17)]
+    arr[i] = str[Math.floor(Math.random()*16)]
   }
   return '#' + arr.join('')
 }
