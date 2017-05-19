@@ -2,18 +2,23 @@
 
 ## 1、写一个函数，返回从min到max之间的随机整数，包括min不包括max (getRandNum)
 
+```
 function getRandNum(min,max){
   return Math.floor(Math.random()*(max - min)) + min
 }
+```
 
 ## 2、写一个函数，返回从min到max之间的随机整数，包括min包括max (getRandNum)
 
+```
 function getRandNum(min,max){
   return Math.floor(Math.random()*(max - min + 1)) + min
 }
+```
 
 ## 3、写一个函数，生成一个长度为n的随机字符串，字符串的取值范围包括0到9，a到z，A到Z (getRandStr)
 
+```
 function getRandStr(n){
   var str = "0123456789abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var arr = []
@@ -22,9 +27,11 @@ function getRandStr(n){
   }
   return arr.join('')
 }
+```
 
 ## 4、写一个函数，生成一个随机IP地址，一个合法的IP地址为0.0.0.0 ~ 255.255.255.255（getRandIP）
 
+```
 function getRandIP(){
   var arr = []
   for(var i = 0; i < 4; i++){
@@ -32,9 +39,11 @@ function getRandIP(){
   }
   return arr.join('.')
 }
+```
 
 ## 5、写一个函数，生成一个随机颜色字符串，合法的颜色为#000000 ~ #ffffff （getRandColor）
 
+```
 function getRandColor(){
   var arr = []
   var str = "0123456789abcdef"
@@ -43,6 +52,7 @@ function getRandColor(){
   }
   return '#' + arr.join('')
 }
+```
 
 # 数组任务
 
