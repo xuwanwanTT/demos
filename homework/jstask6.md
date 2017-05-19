@@ -1,4 +1,4 @@
-#Math 任务
+# Math 任务
 
 ## 1、写一个函数，返回从min到max之间的随机整数，包括min不包括max (getRandNum)
 
@@ -58,12 +58,14 @@ function getRandColor(){
 
 ## 1、数组方法里push、pop、shift、unshift、join、splice分别是什么作用？用splice函数分别实现push、pop、shift、unshift方法
 
+```
 push  在数组最后添加一个元素，改变原数组，arr.push('add')
 pop  把数组最后一个元素删除,改变原数组，arr.pop()
 shift  删除数组第一个元素,改变原数组，arr.shift()
 unshift  在数组头添加一个元素,改变原数组，arr.unshift('add')
 join 将数组转换成字符串，不改变原数组，有参数，参数为连接符,arr.join('参数')
 splice  添加删除，改变原数组，有参数，第一个为索引，第二个为删除的操作次数，第三个为添加内容，不写第三个则默认不添加
+```
 
 ### 实现：
 ```
@@ -138,6 +140,7 @@ function getChIntv(set){
 
 ## 2、把hh-mm-dd格式数字日期改成中文日期 （getChsDate）
 
+```
 function getChsDate(set){
   var str = "零,一,二,三,四,五,六,七,八,九,十,十一,十二,十三,十四,十五,十六,十七,十八,十九,二十,二十一,二十二,二十三,二十四,二十五,二十六,二十七,二十八,二十九,三十,三十一"
   var dateStr = str.split(',')
@@ -150,6 +153,7 @@ function getChsDate(set){
   var chsDay = dateStr[parseInt(dayStr)] + "日"
   return chsYear + chsMou + chsDay
 }
+```
 
 ## 3、写一个函数（friendlyDate），参数为时间对象毫秒数的字符串格式，返回值为字符串。假设参数为时间对象毫秒数t，根据t的时间分别返回如下字符串：
 - 刚刚（t距当前时间不到1分钟时间间隔）
