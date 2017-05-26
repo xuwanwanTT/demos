@@ -18,8 +18,7 @@ elem.childNpdes获取当前元素下的所有节点，包括空白的文本节�
 - ES5的方法：
 - querySelector()；querySelectorAll();elementFromPoint();
 
-# 4、如何创建一个元素？如何给元素设置属性？如何删除元素？
-# 5、如何给页面元素添加子元素？如何删除页面元素下的子元素？
+# 4-5、如何创建一个元素？如何给元素设置属性？如何删除元素？如何给页面元素添加子元素？如何删除页面元素下的子元素？
 
 ```
 var a = document.createElement("标签名")  //创建元素
