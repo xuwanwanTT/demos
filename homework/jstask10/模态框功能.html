@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>demo-模态框功能</title>
+  <style>
+    html,body {
+      height: 100%;
+    }
+
+    .clearfixed::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .btn1 {
+      cursor: pointer;
+      border: 1px solid black;
+      border-radius: 3px;
+      padding: 0 5px;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .box {
+      width: 600px;
+      height: 200px;
+      border: 1px solid white;
+      background: white;
+      border-radius: 4px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -300px;
+      margin-top: -100px;
+    }
+
+    .cnt {
+      border-top: 2px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding-left: 10px;
+      padding-bottom: 20px;
+    }
+
+    .box .title {
+      padding-left: 10px;
+    }
+
+    .btnx {
+      float: right;
+      padding-right: 20px;
+      cursor: pointer;
+    }
+
+    .title > h4 {
+      margin: 10px 0;
+    }
+
+    .choose > li {
+      list-style: none;
+      float:right;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .choose {
+      padding-right: 20px;
+      margin-top: 12px;
+    }
+
+    .gray {
+      background: #ccc;
+    }
+
+  </style>
+</head>
+<body>
+  <span class="btn1">点我1</span>
+  <div class="none">
+    <div class="title clearfixed">
+      <span class="btnx">X</span>
+      <h4>我是标题</h1>
+    </div>
+    <div class="cnt">
+      <p>我是内容1</p>
+      <p>我是内容2</p>
+    </div>
+    <ul class="choose clearfixed">
+      <li>确定</li>
+      <li>取消</li>
+    </ul>
+  </div>
+
+  <script>
+    var btn1 = document.querySelector('.btn1');
+    var none = document.querySelector('.none');
+    var wrap = document.querySelector('body');
+    var btnx = document.querySelector('.btnx');
+    var chooseli = document.querySelectorAll('.choose>li');
+
+    btn1.addEventListener('click',function(e){
+      none.setAttribute("class","box");
+      wrap.setAttribute("class","gray");
+      e.stopPropagation();
+    });
+
+    btnx.addEventListener('click',function(){
+      none.setAttribute("class","none");
+      wrap.setAttribute("class","wrap");
+    });
+
+    for(var i = 0; i < chooseli.length; i++){
+      chooseli[i].addEventListener('click',function(){
+      none.setAttribute("class","none");
+      wrap.setAttribute("class","wrap");
+      });
+    };
+
+    wrap.addEventListener('click',function(){
+      none.setAttribute("class","none");
+      wrap.setAttribute("class","wrap");
+    });
+
+    none.addEventListener('click',function(e){
+      e.stopPropagation();
+    });
+  </script>
+</body>
+</html>

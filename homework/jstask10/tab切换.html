@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>demo-tab切换</title>
+  <style>
+    ul,li {
+      margin: 0;padding: 0;
+    }
+
+    .clearfixed::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .tab {
+      max-width:600px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .title {
+      border: 1px solid #ccc;
+    }
+
+    .cnt {
+      border: 1px solid #ccc;
+      border-top: 0 solid #ccc;
+      height: 200px;
+      padding: 10px;
+     
+    }
+
+    .title > li {
+      float:left;
+      cursor: pointer;
+      padding: 10px;
+      width: 178.5px;
+      text-align: center;
+      border-right: 1px solid #ccc;
+    }
+
+    .title > li:last-child {
+      border-right: 0 solid #ccc;
+    }
+
+    .title .select{
+      background: lightgray;
+    }
+
+    .cnt > li {
+      display: none;
+    }
+
+    .cnt .select {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="tab">
+    <ul class="title clearfixed">
+      <li class="select">tab1</li>
+      <li>tab2</li>
+      <li>tab3</li>
+    </ul>
+    <ul class="cnt">
+      <li class="select">内容1</li>
+      <li>内容2</li>
+      <li>内容3</li>
+    </ul>
+  </div>
+
+  <script>
+    var title = document.querySelector('.title');
+    var titleli = document.querySelectorAll('.title > li');
+    var cntli = document.querySelectorAll('.cnt > li')
+    title.addEventListener('click',function(e){
+      for(var i = 0; i < titleli.length; i++){
+        titleli[i].removeAttribute('class');
+        cntli[i].removeAttribute('class');
+      };
+      e.target.setAttribute('class','select');
+      var index = [].indexOf.call(titleli,e.target);
+      cntli[index].setAttribute('class','select');
+    })
+  </script>
+</body>
+</html>
