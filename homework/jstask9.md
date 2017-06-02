@@ -52,6 +52,7 @@ ct[0].addEventListener('click',function(e){
 # 6、补全代码，要求：
 - 当点击按钮开头添加时在```<li>这里是</li>```元素前添加一个新元素，内容为用户输入的非空字符串；当点击结尾添加时在最后一个li元素后添加用户输入的非空字符串。
 - 当点击每一个元素li时控制台展示该元素的文本内容。
+
 ```
 <ul class="ct">
   <li>这里是</li>
@@ -65,6 +66,8 @@ ct[0].addEventListener('click',function(e){
 //你的代码
 </script>
 ```
+
+解答：
 
 ```
 var ipt = document.getElementsByClassName('ipt-add-content')
@@ -95,6 +98,7 @@ btnStart.addEventListener('click',function(){
 
 
 # 7、补全代码，要求：当鼠标放置在li元素上，会在img-preview里展示当前li元素的data-img对应的图片。
+
 ```
 <ul class="ct">
     <li data-img="http://cdn.jirengu.com/book.jirengu.com/img/11.jpg">鼠标放置查看图片1</li>
@@ -106,6 +110,8 @@ btnStart.addEventListener('click',function(){
 //你的代码
 </script>
 ```
+
+解答：
 
 ```
 var ct = document.getElementsByClassName("ct")
