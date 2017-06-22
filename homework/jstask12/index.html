@@ -42,42 +42,42 @@
     </ul>
   </div>
   <div class="load">
-    <a class="btn" href="javascript: void(0)">加载更多</a>
+    <a class="btn" href="javascript: void(0)">加载更多</a>  <!--javascript: void(0)表示点击页面不跳转-->
   </div>
 
   <script>
     var btn = document.querySelector('.btn')
     var ul = document.querySelector('.detail-area ul')
-    var pageindex = 3
-    var isDataArrive = true
+    var pageindex = 3 
+    var isDataArrive = true //防止在等待加载的时候重复点击，设定一个状态
 
-    btn.addEventListener('click',function(){
-      var xhr = new XMLHttpRequest()
+    btn.addEventListener('click',function(){  //通过事件监听的方式实现异步
+      var xhr = new XMLHttpRequest()  //构造函数初始化一个XMLHttpRequest对象，就是这个实现网页局部刷新
 
-      if(!isDataArrive){return}
+      if(!isDataArrive){return} //如果isDataArrive为false，就return，不执行后面的代码，只要在数据还未展现到页面前设置isDataArrive = false，就可以防止重复点击
       
       xhr.onreadystatechange =function(){
         if(xhr.readyState === 4){
           if(xhr.status === 200 || xhr.status === 304){
-            var result = JSON.parse(xhr.responseText)
-            var fragment = document.createDocumentFragment()
+            var result = JSON.parse(xhr.responseText) //设定传输的数据为JSON格式，这里用JSON.parse转换成数组
+            var fragment = document.createDocumentFragment()  //创建空白的文档片段
 
             for(var i = 0; i < result.length; i++){
-              var node = document.createElement('li')
-              node.innerText = result[i]
-              fragment.appendChild(node)
+              var node = document.createElement('li') //创建子元素li
+              node.innerText = result[i]  //将数组里的元素作为字符串写进li中，这里不用innerHTML，传回的数据中如果有JS，会被执行，这是不被允许的
+              fragment.appendChild(node)  //将li添到文档片段中
             }
 
-            ul.appendChild(fragment)
+            ul.appendChild(fragment)  //将文档片段添加到DOM树
             pageindex = pageindex + 5
 
           }else { alert('出错啦！')}
           isDataArrive = true
         }
       }
-      xhr.open('get','/loadMore?index='+pageindex+'&length=5',true)
+      xhr.open('get','/loadMore?index='+pageindex+'&length=5',true) //get数据传输的方式；loadMore约定的接口名；index和length约定的数据格式；true表示异步
       xhr.send()
-      isDataArrive = false
+      isDataArrive = false  //第一次点击，在xhr.onreadystatechange =function(){}未完成之前，isDataArrive = false，此时再点击按钮，就不会执行后面的代码，直到数据展现到页面上，此时isDataArrive = true，就可以继续了
     })
   </script>
   
