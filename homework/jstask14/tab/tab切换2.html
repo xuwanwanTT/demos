@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>tab切换2</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .clearfixed:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .mod-tab {
+      margin-bottom: 20px;
+    }
+
+    .tabs > li {
+      float: left;
+      border: 1px solid #eee;
+      width: 100px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tabs > li:nth-child(2),
+    .tabs > li:nth-child(3) {
+      border-left: 0;
+    }
+
+    .tabs > .active {
+      background: #eee;
+    }
+
+    .wrap {
+      width: 304px;
+      height: 120px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel {
+      position: absolute;
+      width: 100%;
+    }
+
+    .panel > li {
+      height: 100px;
+      padding: 10px;
+    }
+
+    .panel > li:nth-child(1) {
+      background: red;
+    }
+
+    .panel > li:nth-child(2) {
+      background: green;
+    }
+
+    .panel > li:nth-child(3) {
+      background: blue;
+    }
+  </style>
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="mod-tab">
+    <ul class="tabs clearfixed">
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab3</li>
+    </ul>
+
+    <div class="wrap">
+      <ul class="panel">
+        <li>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    $('.tabs > li').on('click',function(){
+      $this = $(this)
+      index = $this.index()
+      height = $('.mod-tab .wrap').height()
+
+      $this.addClass('active').siblings().removeClass('active')
+
+      $this.parents('.mod-tab').find('.panel').animate({top: -height*index})
+    })
+  </script>
+</body>
+</html>
