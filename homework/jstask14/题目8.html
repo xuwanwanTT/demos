@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+  <style>
+
+    ul,li {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .clearfixed:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .show {
+      width: 200px;
+      padding: 10px;
+      background: red;
+      color: white;
+      border-bottom: 1px solid white;
+      cursor: pointer;
+    }
+
+    .iconTo {
+      float: right;
+    }
+
+    .shows {
+      width: 200px;
+      position: relative;
+    }
+
+    .cnt {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 220px;
+      top: 0px;
+    }
+
+    /*.cnt1 {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 227px;
+      top: 8px;
+    }
+
+    .cnt2 {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 220px;
+    }
+
+    .cnt3 {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 227px;
+      top: 86px;
+    }
+
+    .cnt4 {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 227px;
+      top: 125px;
+    }
+
+    .cnt5 {
+      width: 180px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 227px;
+      top: 164px;
+    }*/
+
+    .cnt > li {
+      width: 40px;
+      float: left;
+      margin: 10px 20px;
+      cursor: pointer;
+    }
+
+    .hide {
+      display: none;
+    }
+    
+  </style>
+  <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li class="shows">
+      <div class="show clearfixed">
+        <span>珠宝玉器</span>
+        <span class="iconTo">></span>
+      </div>
+      <ul class="cnt clearfixed hide">
+        <li>翡翠</li>
+        <li>玉石</li>
+        <li>宝石</li>
+        <li>水晶</li>
+      </ul>
+    </li>
+    <li class="shows">
+      <div class="show clearfixed">
+        <span>珠宝玉器</span>
+        <span class="iconTo">></span>
+      </div>
+      <ul class="cnt clearfixed hide">
+        <li>翡翠</li>
+        <li>玉石</li>
+        <li>宝石</li>
+        <li>水晶</li>
+      </ul>
+    </li>
+    <li class="shows">
+      <div class="show clearfixed">
+        <span>珠宝玉器</span>
+        <span class="iconTo">></span>
+      </div>
+      <ul class="cnt clearfixed hide">
+        <li>翡翠</li>
+        <li>玉石</li>
+        <li>宝石</li>
+        <li>水晶</li>
+      </ul>
+    </li>
+    <li class="shows">
+      <div class="show clearfixed">
+        <span>珠宝玉器</span>
+        <span class="iconTo">></span>
+      </div>
+      <ul class="cnt clearfixed hide">
+        <li>翡翠</li>
+        <li>玉石</li>
+        <li>宝石</li>
+        <li>水晶</li>
+        <li>玛瑙</li>
+        <li>珍珠</li>
+      </ul>
+    </li>
+    <li class="shows">
+      <div class="show clearfixed">
+        <span>珠宝玉器</span>
+        <span class="iconTo">></span>
+      </div>
+      <ul class="cnt clearfixed hide">
+        <li>翡翠</li>
+        <li>玉石</li>
+        <li>宝石</li>
+        <li>水晶</li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    // var $show = $('.show')
+    // var arrcnt = ['.cnt1','.cnt2','.cnt3','.cnt4','.cnt5']
+
+    // for(i = 0; i < arrcnt.length; i++){
+    //   !function(i){
+    //     $($show[i]).on('mouseover',function(){
+    //       $(arrcnt[i]).removeClass('hide')
+    //     })
+
+    //     $($show[i]).on('mouseout',function(){
+    //       $(arrcnt[i]).addClass('hide')
+    //     })
+
+    //     $(arrcnt[i]).on('mouseover',function(){
+    //       $(arrcnt[i]).removeClass('hide')
+    //     })
+
+    //     $(arrcnt[i]).on('mouseout',function(){
+    //       $(arrcnt[i]).addClass('hide')
+    //     })
+    //   }(i)
+    // }
+
+    $('.show').on('mouseover',function(){
+      var index = $('.show').index(this)
+      $('.cnt').eq(index).removeClass('hide')
+    })
+
+    $('.show').on('mouseout',function(){
+      var index = $('.show').index(this)
+      $('.cnt').eq(index).addClass('hide')
+    })
+
+    $('.cnt').on('mouseover',function(){
+      $(this).removeClass('hide')
+    })
+
+    $('.cnt').on('mouseout',function(){
+      $(this).addClass('hide')
+    })
+
+
+  </script>
+</body>
+</html>

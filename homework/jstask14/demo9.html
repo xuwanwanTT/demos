@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>demo</title>
+  <style>
+    .clearfixed:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .nav {
+      width: 150px;
+      border: 1px solid black;
+    }
+
+    .nav > span {
+      display: block;
+      float: left;
+    }
+
+    .nav > a {
+      display: block;
+      width: 40px;
+      float: left;
+    }
+
+    .nav > a:hover {
+      background: yellow;
+    }
+
+    .cnt {
+      width: 416px;
+      border: 1px solid black;
+    }
+
+    .part1,
+    .part2,
+    .part3,
+    .part4,
+    .part5,
+    .part6 {
+      float: left;
+      border: 1px solid red;
+      width: 130px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .icon {
+      width: 130px;
+      height: 237px;
+      position: absolute;
+      background: rgba(0,0,0,0.2);
+      top: 0;
+      text-align: center;
+    }
+
+    .icon > a {
+      display: inline-block;
+      margin: 105px auto;
+      border: 1px solid blue;
+      background: white;
+    }
+
+    .show {
+      display: none;
+    }
+
+    .part3,
+    .part6 {
+      margin-right: 0;
+    }
+
+    .part4,
+    .part5,
+    .part6 {
+      margin-bottom: 0;
+    }
+
+  </style>
+  <!-- <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script> -->
+</head>
+<body>
+  <div>
+    <div class="nav clearfixed">
+      <a href="">test1</a><span>|</span><a href="">test2</a><span>|</span><a href="">test3</a>
+    </div>
+    <!-- <div class="cnt clearfixed">
+      <div class="part1">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part2">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part3">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part4">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part5">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part6">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var arr = ['.part1','.part2','.part3','.part4','.part5','.part6']
+
+    for(i = 0; i < arr.length; i++){
+      !function(i){
+        $(arr[i]).on('mouseover',function(){
+          $(arr[i]+"> .icon").removeClass('show')
+        })
+
+        $(arr[i]).on('mouseout',function(){
+          $(arr[i]+"> .icon").addClass('show')
+        })
+      }(i)
+    }
+  </script> -->
+</body>
+</html>

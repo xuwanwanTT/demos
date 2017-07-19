@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>题目9</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .clearfixed:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .mod-tab {
+      margin-bottom: 20px;
+    }
+
+    .tabs > .active {
+      background: #eee;
+    }
+
+    .tabs > li {
+      width: 50px;
+      border: 1px solid red;
+      float: left;
+      text-align: center;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .tabs > li {
+      border-bottom: 0;
+    }
+
+    .tabs > li > .icon {
+      float: right;
+      margin-right: -8px;
+    }
+
+    .tabs > li:nth-child(1) {
+      border-right: 0;
+    }
+
+    .tabs > li:nth-child(2) {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .tabs > li:nth-child(3) {
+      border-left: 0;
+    }
+
+    .panel {
+      width: 410px;
+      border: 1px solid red;
+      display: none;
+    }
+
+    .mod-tab > .active {
+      display: block;
+    }
+
+    .part {
+      float: left;
+      width: 130px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .part:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    .part:nth-child(4),
+    .part:nth-child(5),
+    .part:nth-child(6) {
+      margin-bottom: 0;
+    }
+
+    .part > .icon {
+      width: 130px;
+      height: 237px;
+      position: absolute;
+      background: rgba(0,0,0,0.2);
+      top: 0;
+      text-align: center;
+    }
+
+    .part > .icon > a {
+      display: inline-block;
+      margin: 105px auto;
+      border: 1px solid blue;
+      background: white;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .show {
+      display: none;
+    }
+  </style>
+  <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="mod-tab">
+    <ul class="tabs clearfixed">
+      <li class="active clearfixed">
+        <a>test1</a>
+        <a class="icon">|</a>
+      </li>
+      <li class="clearfixed">
+        <a>test2</a>
+        <a class="icon">|</a>
+      </li>
+      <li>test3</li>
+    </ul>
+    <div class="panel clearfixed active">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+    <div class="panel clearfixed">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+    <div class="panel clearfixed">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mod-tab">
+    <ul class="tabs clearfixed">
+      <li class="active clearfixed">
+        <a>test4</a>
+        <a class="icon">|</a>
+      </li>
+      <li class="clearfixed">
+        <a>test5</a>
+        <a class="icon">|</a>
+      </li>
+      <li>test6</li>
+    </ul>
+    <div class="panel clearfixed active">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+    <div class="panel clearfixed">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+    <div class="panel clearfixed">
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+      <div class="part">
+        <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+        <div class="icon show"><a href="">click</a></div>
+        <p class="intro">zhe shi shuo ming </p>
+        <p class="price">zhe shi jia ge </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $('.part').on('mouseover',function(){
+      var index = $('.part').index(this)
+      $('.part > .icon').eq(index).removeClass('show')
+    })
+
+    $('.part').on('mouseout',function(){
+      var index = $('.part').index(this)
+      $('.part > .icon').eq(index).addClass('show')
+    })
+
+    $('.tabs > li').on('click',function(){
+      var $this = $(this)
+      var index = $this.index()
+      $this.addClass('active').siblings().removeClass('active')
+      $this.parents('.mod-tab').find('.panel').eq(index).addClass('active').siblings().removeClass('active')
+    })
+  </script>
+</body>
+</html>

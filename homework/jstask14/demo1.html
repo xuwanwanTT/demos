@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>demo1</title>
+  <style>
+    .li {
+      width: 200px;
+      background: red;
+      cursor: pointer;
+      border-bottom: 1px solid white;
+    }
+
+    .wrap {
+      width: 200px;
+    }
+
+    .li > .title {
+      display: inline-block;
+      color: white;
+      margin: 10px;
+    }
+
+    .li > .icon {
+      float: right;
+      margin: 10px 10px 0 0 ;
+      color: white;
+    }
+
+    .clearfixed::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .cnt {
+      width: 200px;
+      height: 76px;
+      border: 1px solid blue;
+    }
+
+    .cnt > ul {
+      margin-top:0;
+    }
+
+    .cnt > ul > li {
+      float: left;
+      width: 80px;
+      list-style: none;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+
+    .show {
+      display:none;
+    }
+
+    .show1 {
+      position: absolute;
+      top: 8px;
+      left: 208px;
+    }
+
+    .show2 {
+      position: absolute;
+      top: 47px;
+      left: 208px;
+    }
+
+    .show3 {
+      position: absolute;
+      top: 86px;
+      left: 208px;
+    }
+
+    .show4 {
+      position: absolute;
+      top: 125px;
+      left: 208px;
+    }
+
+    .show5 {
+      position: absolute;
+      top: 164px;
+      left: 208px;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+  <div class="li clearfixed">
+    <p class="title">珠宝玉器</p>
+    <p class="icon">></p>
+  </div>
+
+  <div class="li clearfixed">
+    <p class="title">珠宝玉器</p>
+    <p class="icon">></p>
+  </div>
+
+  <div class="li clearfixed">
+    <p class="title">珠宝玉器</p>
+    <p class="icon">></p>
+  </div>
+
+  <div class="li clearfixed">
+    <p class="title">珠宝玉器</p>
+    <p class="icon">></p>
+  </div>
+
+  <div class="li clearfixed">
+    <p class="title">珠宝玉器</p>
+    <p class="icon">></p>
+  </div>
+
+  <div class="cnt show">
+    <ul class="clearfixed">
+      <li>宝石</li>
+      <li>玛瑙</li>
+      <li>宝玉</li>
+      <li>翡翠</li>
+    </ul>
+  </div>
+
+  <script>
+    // var li = document.querySelectorAll('.li')
+    // var cnt = document.querySelector('.cnt')
+
+    var $li = $('.li')
+    var $cnt = $('.cnt')
+
+    var cl = ['show1','show2','show3','show4','show5']
+    var licount = [0,1,2,3,4]
+
+    for(var i = 0; i < licount.length; i++){
+      !function(i){
+    //     li[licount[i]].addEventListener('mouseover',function(){
+    //       cnt.classList.remove('show','show1','show2','show3','show4','show5')
+    //       cnt.classList.add(cl[i])
+    //     })
+
+    //     li[licount[i]].addEventListener('mouseout',function(){
+    //       cnt.classList.add('show')
+    //     })
+
+        $($li[licount[i]]).on('mouseover',function(){
+          $cnt.removeClass('show show1 show2 show3 show4 show5')
+          $cnt.addClass(cl[i])
+        })
+
+        $($li[licount[i]]).on('mouseout',function(){
+          $cnt.addClass('show')
+        })
+
+      }(i)
+    }
+
+    // cnt.addEventListener('mouseover',function(){
+    //   cnt.classList.remove('show')
+    // })
+
+    // cnt.addEventListener('mouseout',function(){
+    //   cnt.classList.add('show')
+    // })
+
+    $cnt.on('mouseover',function(){
+      $cnt.removeClass('show')
+    })
+
+    $cnt.on('mouseout',function(){
+      $cnt.addClass('show')
+    })
+
+  </script>
+</body>
+</html>

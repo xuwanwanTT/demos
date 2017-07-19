@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>题目10</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .clearfixed:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .wrap {
+      max-width:450px;
+      margin: 0 auto; 
+    }
+
+    .part {
+      float: left;
+      width: 130px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      position: relative;
+      border: 1px solid #eee;
+    }
+
+    .part > .icon {
+      width: 130px;
+      height: 237px;
+      position: absolute;
+      background: rgba(0,0,0,0.2);
+      top: 0;
+      text-align: center;
+    }
+
+    .part > .icon > a {
+      display: inline-block;
+      margin: 105px auto;
+      border: 1px solid blue;
+      background: white;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .show {
+      display: none;
+    }
+
+    .btn {
+      border: 1px solid red;
+      border-radius: 4px;
+      width: 50px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #eee;
+    }
+  </style>
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>珠宝首饰</h1>
+    <div class="parts clearfixed">
+      <div class="part">
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <div class="icon show"><a href="">click</a></div>
+          <p class="intro">zhe shi shuo ming </p>
+          <p class="price">zhe shi jia ge </p>
+        </div>
+        <div class="part">
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <div class="icon show"><a href="">click</a></div>
+          <p class="intro">zhe shi shuo ming </p>
+          <p class="price">zhe shi jia ge </p>
+        </div>
+        <div class="part">
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <div class="icon show"><a href="">click</a></div>
+          <p class="intro">zhe shi shuo ming </p>
+          <p class="price">zhe shi jia ge </p>
+        </div>
+    </div>
+    <div class="btn">click</div>
+  </div>
+  
+  <script>
+    $('.part').on('mouseover',function(){
+      var index = $('.part').index(this)
+      $('.part > .icon').eq(index).removeClass('show')
+    })
+
+    $('.part').on('mouseout',function(){
+      var index = $('.part').index(this)
+      $('.part > .icon').eq(index).addClass('show')
+    })
+
+    var products = [
+      {
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手 猴哥款',
+        price: '￥405.00'
+      },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金转运珠 猴哥款',
+        price: '￥100.00'
+      },{
+        img: 'http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg',
+        name: '珂兰 黄金手链 3D猴哥款',
+        price: '￥45.00'
+      }
+    ]
+
+    $('.btn').click(function(){
+
+      for(i = 0; i < products.length; i++){
+        !function(i){
+          var html = ''
+          html = html + '<div class="part">' + '<img src=' + products[i]['img'] + '>' + '<div class="icon show"><a href="">click</a></div>' + '<p class="intro">' + products[i]['name'] + '</p>' + '<p class="price">' + products[i]['price'] + '</p></div>'
+          $('.parts').append(html)
+        }(i)
+      }
+    })
+  </script>
+</body>
+</html>

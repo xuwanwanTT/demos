@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>demo2</title>
+  <style>
+
+  ul,li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+    
+  .cnt {
+    width: 458px;
+    border: 1px solid red;
+  }
+
+  .cnt > li {
+    border: 1px solid blue;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cnt > li:nth-child(3n) {
+    margin-right: 0px;
+  }
+
+  .cnt > li:nth-child(4) {
+    margin-bottom: 0;
+  }
+  .cnt > li:nth-child(5) {
+    margin-bottom: 0;
+  }
+  .cnt > li:nth-child(6) {
+    margin-bottom: 0;
+  }
+
+  .clearfixed::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .cnt > li:hover {
+    z-index: -2;
+  }
+
+  .child-cnt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1
+  }
+
+  </style>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+
+<ul>
+  <li>
+    <a href="#">热门</a>
+      <ul class="cnt clearfixed">
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+          <div class="child-cnt">
+            <a href="">立即抢购</a>
+          </div>
+        </li>
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+        </li>
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+        </li>
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+        </li>
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+        </li>
+        <li>
+          <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg">
+          <p class="intro">藏金镶玉路路通吊坠</p>
+          <p class="price">￥ 699.00</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+
+
+</body>
+</html>
