@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>题目8</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      border: 1px solid black;
+      cursor: pointer;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    li:hover {
+      background: green;
+    }
+
+    .btn {
+      width: 80px;
+      border: 1px solid red;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+    }
+  </style>
+  <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+  <ul>
+    <li>内容1</li>
+    <li>内容2</li>
+  </ul>
+  <a href="javascript: void(0)" class="btn">加载更多</a>
+
+  <script>
+    var cur = 3
+
+    $('.btn').click(function(){
+      if($(this).data('isLoading')){return}
+      $(this).data('isLoading',true).html('wait')
+
+      $.ajax({
+        url: '/getNews',
+        method: 'GET',
+        data:{
+          start: cur,
+          len: 6
+        }
+
+      }).done(function(ret){
+        $('.btn').data('isLoading',false).text('加载更多')
+        if(ret.status === 0){
+          appendHtml(ret.data)
+          cur += 6
+        }else{
+          alert('data erro')
+        }
+      }).fail(function(){
+        alert('system erro')
+      })
+
+      function appendHtml(news){
+        for(i = 0; i < news.length; i++){
+          $('ul').append('<li>' + news[i] + '</li>')
+        }
+      }
+    })
+  </script>
+</body> 
+</html>
