@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新闻懒加载</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    ul {
+      width: 800px;
+      margin: 0 auto;
+    }
+
+    li {
+      background: #eee;
+    }
+
+    li > a {
+      height: 100px;
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    li > a:hover {
+      opacity: .7;
+    }
+
+    li > a > img {
+      width: 100px;
+      height: 100px;
+    }
+     li > a > div {
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+       padding: 5px;
+       font-size: 20px;
+     }
+
+     ul > p {
+       margin: 10px;
+       text-align: center;
+     }
+  </style>
+   <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script> 
+</head>
+<body>
+  <ul></ul>
+
+  <script>
+    var index = 0
+    var lockajax
+    var lockscroll = false
+
+    function checkShow($node){
+      var scrollTop = $(window).scrollTop()
+      var windowHeight = $(window).height()
+      var offsetTop = $node.offset().top
+
+      if(offsetTop <= scrollTop + windowHeight && offsetTop >= scrollTop){
+        return true}
+        return false
+    }
+
+    function appendHtml(news){
+      var htmls = ''
+      if(news.length === 0 ){
+        console.log(1)
+        lockscroll = true
+        $('ul').append('<p>没有更多数据了~</p>') 
+        return}
+      $.each(news,function(i,val){
+        htmls += '<li><a href="' + val.href + '">'
+        htmls += '<img src="' + val.src + '" alt="">'
+        htmls += '<div><h4 class="title">' + val.title + '</h4>'
+        htmls += '<p class="content">' + val.content + '</p></div></li>'
+      })
+      $('ul').append(htmls)
+    }
+
+    $(document).ready(
+      $.ajax({
+        url: '/getNews',
+        method: "GET", 
+        data: {
+        number: index,
+        len: 6
+        }
+      }).done(function(ret){
+        if(ret.status === 0){
+          index +=9
+          appendHtml(ret.data)
+        }else{}
+      })
+        .fail(function(){
+          alert("系统出错")
+        }),
+
+      function appendHtml(news){
+        var htmls = ''
+        $.each(news,function(i,val){
+          htmls += '<li><a href="' + val.href + '">'
+          htmls += '<img src="' + val.src + '" alt="">'
+          htmls += '<div><h4 class="title">' + val.title + '</h4>'
+          htmls += '<p class="content">' + val.content + '</p></div></li>'
+        })
+        $('ul').append(htmls)
+      }
+    )
+    
+    
+    $(window).on('scroll',function(){
+      if(lockajax){return}
+      if(checkShow($('li:last')) && !lockscroll){
+        lockajax = true
+        $.ajax({
+          url: '/getNews',
+          method: "GET", 
+          data: {
+          number: index,
+          len: 0
+          }
+        }).done(function(ret){
+          if(ret.status === 0){
+            index +=3
+            appendHtml(ret.data)
+            lockajax = false
+          }else{alert('数据获取失败')}
+        })
+          .fail(function(){
+            alert('系统出错')
+          })
+      }
+    }) 
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta chartset="utf-8">
+  <title>跨域-jsonp</title>
+</head>
+<body>
+  <button>点我</button>
+  <ul class="news"></ul>
+ 
+  <script>
+    var btn = document.querySelector("button")
+
+    btn.addEventListener('click',function(){
+      var script = document.createElement('script')
+      script.src = 'http://localhost:8080/getNews?callback=appendHtml'
+      document.head.appendChild(script)
+      document.head.removeChild(script)
+    })
+
+    function appendHtml(news){
+      var html = ''
+      html += '<li>' + news + '</li>'
+      var addnews = document.querySelector('.news')
+      addnews.innerHTML = html
+    }
+  </script>
+</body>
+</html>
