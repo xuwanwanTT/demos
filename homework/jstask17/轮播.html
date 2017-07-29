@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>轮播</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      text-decoration: none;
+    }
+
+    .view {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .show {
+      width: 1200px;
+      position: absolute;
+      left: -300px;
+    }
+
+    .show > li {
+      float: left;
+    }
+
+    img {
+      width: 300px;
+      height: 200px;
+    }
+
+    .switch {
+      position:absolute;
+    }
+
+    .switch > .return {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #eee;
+      text-align: center;
+      position: absolute;
+      left: 10px;
+      top: 85px;
+      font-size: 21px;
+      color: white;
+      cursor: pointer;
+      opacity: .8;
+    }
+
+    .switch > .next {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #eee;
+      text-align: center;
+      position: absolute;
+      left: 260px;
+      top: 85px;
+      font-size: 21px;
+      color: white;
+      cursor: pointer;
+      opacity: .8;
+    }
+
+    .switch > span:hover {
+      opacity: 1;
+    }
+
+    .switchDown {
+      position: absolute;
+      left: 50px;
+      bottom: 0;
+    }
+
+    .switchDown > li {
+      float: left;
+      width: 40px;
+      height: 10px;
+      margin: 5px;
+      border-radius: 4px;
+      background: #eee;
+      cursor: pointer;
+      opacity: .8
+    }
+
+    .switchDown > li:hover {
+      opacity: 1;
+    }
+
+    .switchDown > .active {
+      opacity: 1;
+    }
+  </style>
+  <!-- <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script> -->
+  <script src="file:///C:/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div class="view">
+    <ul class="show">
+      <li>
+        <a href="#">
+          <img src="img/1.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/2.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/3.jpg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/4.jpg" alt="">
+        </a>
+      </li>
+    </ul>
+    <div class="switch">
+      <span class="return"><</span>
+      <span class="next">></span>
+    </div>
+    <ul class="switchDown">
+      <li class="active"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  <script>
+    var $allLi = $('.show li')
+    var $show = $('.show')
+    var imgCount = $allLi.length
+    var pageIndex = 0
+    var imgWidth = $('img').width()
+
+    $('.next').on('click',playN)
+    $('.return').on('click',playR)
+    $('.switchDown li').on('click',play)
+
+    $show.append($allLi.eq(0).clone())
+    $show.prepend($allLi.eq(imgCount -1).clone())
+    $show.css('width',(imgCount+2)*imgWidth)
+
+    function playN(){
+      $show.animate({
+        'left': '-=' + imgWidth
+      },function(){
+        pageIndex++
+        if(pageIndex === imgCount){
+          pageIndex = 0
+          $show.css('left',-imgWidth)
+        }
+      })
+    }
+
+    function playR(){
+     $show.animate({
+        'left': '+=' + imgWidth
+      },function(){
+        pageIndex--
+        if(pageIndex < 0){
+          pageIndex = imgCount-1
+          $show.css('left',-imgWidth*imgCount)
+        }
+      })
+    }
+
+    function play(){
+      pageIndex = $(this).index()
+      $(this).addClass('active').siblings().removeClass('active')
+      $show.animate({'left': -imgWidth*(pageIndex+1)})
+    }
+
+  </script>
+</body>
+</html>
