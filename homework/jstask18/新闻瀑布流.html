@@ -43,7 +43,7 @@
 
     .btn {
       height: 20px;
-      opacity: 1;
+      opacity: 0;
     }
   </style>
   <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
@@ -83,7 +83,7 @@
       if(clock){return}
       clock = true
       $.ajax({
-        url: 'http://platform.sina.com.cn/slide/album_tech',
+        url: 'https://platform.sina.com.cn/slide/album_tech',
         dataType: 'jsonp',
         jsonp:"jsoncallback",
         data: {
