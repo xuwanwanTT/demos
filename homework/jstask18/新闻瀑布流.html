@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .layout {
+      width: 1000px;
+      margin: 0 auto;
+    }
+
+    ul {
+      position: relative;
+    }
+
+    li {
+      width: 300px;
+      position: absolute;
+      margin: 10px;
+      border: 1px solid #eee;
+      padding: 10px;
+    }
+
+    li a {
+      text-decoration: none;
+      color: black;
+    }
+    
+    li img {
+      width: 300px;
+    }
+
+    li h3 {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .btn {
+      height: 20px;
+      opacity: 1;
+    }
+  </style>
+  <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+  <!-- <script src="file:///C:/jquery-1.9.1.js"></script> -->
+</head>
+<body>
+  <div class="layout">
+    <ul></ul>
+    <div class="btn">隐藏的</div>
+  </div>
+  
+  <script>
+    
+    getNews()
+
+
+    $(window).on('scroll',function(){
+      if(isVisable()){getNews()}
+    })
+    
+    $(window).resize(waterPull)
+
+    function isVisable(){
+      var scrollTop = $(window).scrollTop()
+      var windowHeight = $(window).height()
+      var offsetTop = $('.btn').offset().top
+
+      if(offsetTop <= scrollTop + windowHeight && offsetTop >= scrollTop){
+        return true}
+      return false
+    }
+
+    var curPage = 1
+    var clock = false
+
+    function getNews(){
+      if(clock){return}
+      clock = true
+      $.ajax({
+        url: 'http://platform.sina.com.cn/slide/album_tech',
+        dataType: 'jsonp',
+        jsonp:"jsoncallback",
+        data: {
+          app_key: '1271687855',
+          num: '9',
+          page:curPage
+        }
+      }).done(function(ret){
+        clock = false
+        appendHtml(ret.data)
+        $('li').find('img').load(function(){
+          waterPull()
+        })
+        curPage++
+      })
+       .fail(function(){
+        alert("系统错误")
+      })
+    }
+
+    function appendHtml(news){
+      var htmls = ''
+      $.each(news,function(){
+        htmls += '<li><a href="' + this.url + '">' + '<img src="' + this.img_url + '">'
+        htmls += '<h3>' + this.short_name + '</h3>'
+        htmls += '<p>' + this.short_intro + '</p></a></li>'
+      })
+      $('ul').append(htmls)
+      waterPull()
+      addHeight()
+    }
+
+    function waterPull(){
+      var $nodeWidth = $('li').outerWidth(true)
+      var arr = []
+      var index = parseInt($(window).width()/$nodeWidth)
+
+      for(i = 0; i < index; i++){
+        arr[i] = 0
+      }
+
+      $('li').each(function(){
+        var min = Math.min.apply(null,arr)
+        var minindex = arr.indexOf(min)
+
+        $(this).css({
+          left: minindex*$nodeWidth,
+          top: min
+        })
+        arr[minindex] += $(this).outerHeight(true)
+      })
+    }
+
+    function addHeight(){
+      var arr =[]
+      var max = 0
+      $('li').each(function(){
+        arr.push($(this).offset().top)
+      })
+
+      max += Math.max.apply(null,arr)
+      $('ul').css('height',max)
+      console.log(max)
+    }
+  </script>
+</body>
+</html>
