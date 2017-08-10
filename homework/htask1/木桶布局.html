@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>barrel</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .wrap {
+      width: 600px;
+      margin: 0 auto;
+      background: #eee;
+      padding: 5px;
+    }
+
+    .row-ct:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .img-ct {
+      float: left;
+    }
+
+    .btn {
+      height: 20px;
+      opacity: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+  </style>
+  <script src="file:///C:/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <div class="wrap"></div>
+  <div class="btn">hidden</div>
+
+  <script>
+    function Barrel($ct){
+      var lock = true
+      this.$ct = $ct
+      this.rowList = []
+      this.idx = 10
+      this.imgs = this.getImgsUrls(10,0)
+      this.loadImg()
+      this.scroll()
+    }
+
+    Barrel.prototype = {
+
+      loadImg: function(){
+        var _this = this
+
+        if(_this.idx > 20){return $(".wrap").append($('<h1>have no data</h1>'))}
+
+        for(var i = 0; i < this.imgs.length; i++){
+          var img = new Image()
+          img.src = this.imgs[i]
+          !function(img){
+            img.onload = function(){
+              var imgInfo = {
+                target: img,
+                width: 200*img.width/img.height, 
+                height: 200
+              }
+              _this.render(imgInfo)
+              lock = true
+            }            
+          }(img)
+
+        }
+      },
+
+      render: function(imgInfo){
+        var rowWidth = 0
+        var wrapWidth = this.$ct.width()
+        var newRowHeight = 0
+        var lastImgInfo = imgInfo
+
+        this.rowList.push(imgInfo)
+
+        for(var i = 0;i < this.rowList.length; i++){
+          rowWidth += this.rowList[i].width
+        }
+
+        if(rowWidth > wrapWidth){
+          this.rowList.pop()
+          newRowHeight = 200*wrapWidth/(rowWidth - lastImgInfo.width)
+          this.layout(newRowHeight)
+          this.rowList = []
+          this.rowList.push(lastImgInfo)
+
+        }
+      },
+
+      layout: function(newRowHeight){
+        var $rowCt = $("<div class='row-ct'></div>")
+        $.each(this.rowList,function(idx,imgInfo){
+          console.log(imgInfo)
+          var $imgCt = $('<div class="img-ct"></div>')
+          var $img = $(imgInfo.target)
+          $img.height(newRowHeight)
+          $imgCt.append($img)
+          $rowCt.append($imgCt)
+        })
+        $('.wrap').append($rowCt)
+      },
+
+      getImgsUrls: function(num,idx){
+        var urls = []
+        for(var i = 0; i < num; i++){
+          urls[i] = "img/穹 (" + (i+1+idx) + ").jpg"
+        }
+        return urls
+      },
+
+      isVisable: function(){
+        var scrollTop = $(window).scrollTop()
+        var windowHeight = $(window).height()
+        var offsetTop = $('.btn').offset().top
+
+        if(offsetTop <= scrollTop + windowHeight && offsetTop >= scrollTop){return true}
+        return false
+      },
+
+      scroll: function(){
+        var _this = this
+        $(window).on('scroll',function(){
+          if(_this.isVisable() && lock){
+            lock = false
+            _this.imgs = _this.getImgsUrls(10,_this.idx)
+            _this.idx += 10
+            _this.loadImg()
+            console.log(_this.imgs)
+          }
+        })
+      } 
+    }
+
+    var barrel = new Barrel($(".wrap"))
+
+  </script>
+</body>
+</html>
