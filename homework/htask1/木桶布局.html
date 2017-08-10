@@ -47,8 +47,8 @@
       var lock = true
       this.$ct = $ct
       this.rowList = []
-      this.idx = 10
-      this.imgs = this.getImgsUrls(10,0)
+      this.idx = 30
+      this.imgs = this.getImgsUrls(30,0)
       this.loadImg()
       this.scroll()
     }
@@ -58,7 +58,7 @@
       loadImg: function(){
         var _this = this
 
-        if(_this.idx > 20){return $(".wrap").append($('<h1>have no data</h1>'))}
+        // if(_this.idx > 20){return $(".wrap").append($('<h1>have no data</h1>'))}
 
         for(var i = 0; i < this.imgs.length; i++){
           var img = new Image()
@@ -67,8 +67,8 @@
             img.onload = function(){
               var imgInfo = {
                 target: img,
-                width: 200*img.width/img.height, 
-                height: 200
+                width: 100*img.width/img.height, 
+                height: 100
               }
               _this.render(imgInfo)
               lock = true
@@ -92,7 +92,7 @@
 
         if(rowWidth > wrapWidth){
           this.rowList.pop()
-          newRowHeight = 200*wrapWidth/(rowWidth - lastImgInfo.width)
+          newRowHeight = 100*wrapWidth/(rowWidth - lastImgInfo.width)
           this.layout(newRowHeight)
           this.rowList = []
           this.rowList.push(lastImgInfo)
@@ -113,12 +113,23 @@
         $('.wrap').append($rowCt)
       },
 
-      getImgsUrls: function(num,idx){
-        var urls = []
-        for(var i = 0; i < num; i++){
-          urls[i] = "img/穹 (" + (i+1+idx) + ").jpg"
+      // getImgsUrls: function(num,idx){
+      //   var urls = []
+      //   for(var i = 0; i < num; i++){
+      //     urls[i] = "img/穹 (" + (i+1+idx) + ").jpg"
+      //   }
+      //   return urls
+      // },
+
+      getImgsUrls: function(num) {
+        var color, width, height, urls = [];
+        for (var i = 0; i < num; i++) {
+          color = Math.random().toString(16).substring(2, 8);
+          width = Math.floor(Math.random() * 100 + 50);
+          height = Math.floor(Math.random() * 30 + 50);
+          urls.push("http://placehold.it/" + width + "x" + height + "/" + color + "/fff");
         }
-        return urls
+        return urls;
       },
 
       isVisable: function(){
