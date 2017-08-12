@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>test</title>
+   <style>
+    ul,li,div {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .wrap {
+      margin-bottom: 20px;
+    }
+
+    .tabs {
+      width: 300px;
+      border: 1px solid black;
+      border-bottom: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .tabs > li {
+      border-right: 1px solid black;
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tabs > li:last-child {
+      border-right: 0;
+    }
+
+    .tabs > li:hover {
+      background: #eee;
+    }
+
+    .tabs > .active {
+      background: #eee;
+    }
+
+    .panels {
+      width: 500px;
+      height: 300px;
+      border: 1px solid black;
+    }
+
+    .panels > div {
+      display: none
+    }
+
+    .panels > .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+    <ul class="tabs">
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab3</li>
+    </ul>
+    <div class="panels">
+      <div class="active">cnt1</div>
+      <div>cnt2</div>
+      <div>cnt3</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <ul class="tabs">
+      <li class="active">tab1</li>
+      <li>tab2</li>
+      <li>tab3</li>
+      <li>tab4</li>
+    </ul>
+    <div class="panels">
+      <div class="active">cnt1</div>
+      <div>cnt2</div>
+      <div>cnt3</div>
+      <div>cnt4</div>
+    </div>
+  </div>
+
+<script>
+  var ct = document.querySelectorAll('.wrap')[0]
+
+
+  ct.querySelectorAll('li').forEach(function(e){
+    e.onclick = function(){
+      for(var i = 0; i < ct.querySelectorAll('li').length; i++){
+        ct.querySelectorAll('li')[i].setAttribute('class','')
+      }
+      this.setAttribute('class','active')
+    }
+  })
+  // for(var i = 0; i < ct.querySelectorAll('li').length; i++){
+  //   ct.querySelectorAll('li')[i].onclick = function(){
+
+  //     this.setAttribute('class','active')
+  //   }
+  // }  
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
