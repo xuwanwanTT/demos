@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>懒加载</title>
+  <style>
+    ul,li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .wrap {
+      width: 800px;
+      background: blue;
+      margin: 0 auto;
+    }
+
+    .wrap::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .wrap > li {
+      float: left;
+      margin: 10px;
+    }
+
+    img {
+      width: 380px;
+      height: 300px;
+    }
+
+    .btn {
+      width: 200px;
+      height: 20px;
+      margin: 0 auto;
+    }
+  </style>
+  <script src="file:///C:/jquery-1.9.1.js"></script>
+</head>
+<body>
+  <ul class="wrap">
+    <li><img src="img/blank.jpg" src-data="img/1.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/2.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/3.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/4.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/1.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/2.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/3.jpg"></li>
+    <li><img src="img/blank.jpg" src-data="img/4.jpg"></li>
+  </ul>
+  <h1 class="btn">load more</h1>
+
+  <script>
+
+    var Lazy = (function(){
+      function Exposure($target,callback){
+        this.$target = $target
+        this.callback = callback
+        this.bind()
+        this.check()
+      }
+
+      Exposure.prototype.bind = function(){
+        var _this = this
+        $(window).on('scroll',function(){
+          _this.check()
+        })
+      }
+
+      Exposure.prototype.check = function(){
+        if(this.isShow(this.target)){this.callback(this.$target)}
+      }
+
+      Exposure.prototype.isShow = function(){
+        var scrollTop = $(window).scrollTop()
+        var windowHeight = $(window).height()
+        var offsetTop = this.$target.offset().top
+        var nodeHeight = this.$target.height()
+
+        if(offsetTop + nodeHeight <= scrollTop + windowHeight && offsetTop + nodeHeight >= scrollTop){
+          return true}
+          return false
+      }
+
+      function isShowed($node){
+        if($node.attr('src') === $node.attr('src-data')){return true}
+          return false
+      }
+
+
+
+      return {
+        init: function($target,callback){
+          $target.each(function(idx,target){
+            new Exposure($(target),callback)
+          })
+        },
+        one: function($target,callback){
+          $target.each(function(idx,target){
+            if(isShowed($(target))){return}
+            else{new Exposure($(target),callback)}
+          })
+        }
+      }
+    })()
+
+    Lazy.init($('.btn'),function($node){$node.text($node.text() + '123')})
+    Lazy.init($('img'),function($node){showImg($node)})
+
+    function showImg($img){
+      if(isShowed($img)){return}
+      var imgUrl = $img.attr('src-data')
+      $img.attr('src',imgUrl)
+      console.log(1)
+    }
+
+    function isShowed($node){
+        if($node.attr('src') === $node.attr('src-data')){return true}
+          return false
+      }
+
+
+  </script>
+</body>
+</html>
