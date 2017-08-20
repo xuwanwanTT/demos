@@ -87,28 +87,33 @@
 
   <script>
     function Tabs(ct){
-      this.ct = ct
+      this.init(ct)
       this.bind()
     }
 
-    Tabs.prototype.bind = function(){
-      var idx
-      var selectli = this.ct.querySelectorAll('.tabs > li')
-      var selectdiv = this.ct.querySelectorAll('.panels > div')
+    Tabs.prototype.init = function(ct){
+      this.ct = ct
+      this.selectli = this.ct.querySelectorAll('.tabs > li')
+      this.selectdiv = this.ct.querySelectorAll('.panels > div')
+      this.idx = 0
+    }
 
-      selectli.forEach(function(e){
+    Tabs.prototype.bind = function(){
+      var _this = this
+
+      this.selectli.forEach(function(e){
         e.onclick = function(){
 
-          for(var i = 0; i < selectli.length; i++){
-            selectli[i].setAttribute('class','')
+          for(var i = 0; i < _this.selectli.length; i++){
+            _this.selectli[i].setAttribute('class','')
 
-            selectdiv[i].setAttribute('class','')
+            _this.selectdiv[i].setAttribute('class','')
           }
 
           this.setAttribute('class','active')
-          idx = [].indexOf.call(selectli,this)
+          _this.idx = [].indexOf.call(_this.selectli,this)
 
-          selectdiv[idx].setAttribute('class','active')
+          _this.selectdiv[_this.idx].setAttribute('class','active')
         }
       })
     }

@@ -11,19 +11,24 @@
       text-decoration: none;
     }
 
-    .layout {
+    .wrap {
       width: 300px;
       height: 200px;
       overflow: hidden;
       position: relative;
     }
 
-    .wrap {
+    .imgs {
       width: 1200px;
       position: absolute;
-      left: 0;
+      left: -300px;
     }
-    .wrap::after {
+
+    .imgs > li {
+      float: left;
+    }
+
+    .imgs::after {
       content: '';
       display: block;
       clear: both;
@@ -32,7 +37,6 @@
     img {
       width: 300px;
       height: 200px;
-      float: left;
     }
 
     .btnLn {
@@ -73,14 +77,15 @@
 
     .btns {
       position: absolute;
-      left: 20px;
-      top: 170px;
+      top: 270px;
+      left: 50%;
+      margin: -100px;
+      width: 200px;
       display: flex;
-      justify-content: space-around;
     }
 
     .btns > span {
-      display: block;
+      display: inline-block;
       margin: 5px;
       width: 50px;
       height: 10px;
@@ -93,44 +98,240 @@
     .btns > span:hover {
       opacity: 1;
     }
+
+    .btns > .active {
+      opacity: 1
+    }
   </style>
+  <script src="file:///C:/jquery-1.9.1.js"></script>
+  <!-- <script src="https://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script> --> 
 </head>
 <body>
-  <div class="layout">
-    <div class="wrap">
-      <ul class="imgs">
-        <li class="active">
-          <a href="#">
-            <img src="img/1.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="img/2.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="img/3.jpg">
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="img/4.jpg">
-          </a>
-        </li>
-      </ul>
-      <div class="btnLN">
-        <p class="left"><</p>
-        <p class="next">></p>
-      </div>
-      <div class="btns">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>  
+  <div class="wrap">
+    <ul class="imgs">
+      <li>
+        <a href="#">
+          <img src="img/1.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/2.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/3.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/4.jpg">
+        </a>
+      </li>
+    </ul>
+    <div class="btnLN">
+      <p class="left"><</p>
+      <p class="next">></p>
     </div>
+    <div class="btns">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>  
   </div>
+
+  <div class="wrap">
+    <ul class="imgs">
+      <li>
+        <a href="#">
+          <img src="img/1.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/2.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/3.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/4.jpg">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img src="img/5.jpg">
+        </a>
+      </li>
+    </ul>
+    <div class="btnLN">
+      <p class="left"><</p>
+      <p class="next">></p>
+    </div>
+    <div class="btns">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>  
+  </div>
+
+  <script>
+    // function _Carousel(ct){
+    //   this.init(ct)
+    //   this.bind()
+    // }
+
+    // _Carousel.prototype.init = function(ct){
+    //   this.ct = ct
+    //   this.$imgs = this.ct.find('.imgs')
+    //   this.$img = this.ct.find('li')
+    //   this.$left = this.ct.find('.left')
+    //   this.$next = this.ct.find('.next')
+    //   this.$span = this.ct.find('.btns > span')
+    //   this.imgCount = this.$img.length
+    //   this.imgWidth = this.$img.width()
+    //   this.idx = 0
+    // }
+
+    // _Carousel.prototype.bind = function(){
+    //   this.imgAdd()
+    //   this.playN()
+    //   this.playL()
+    //   this.play()
+    // }
+
+    // _Carousel.prototype.imgAdd = function(){
+    //   this.$imgs.append(this.$img.eq(0).clone())
+    //   this.$imgs.prepend(this.$img.eq(this.imgCount - 1).clone())
+    //   this.$imgs.css('width',(this.imgCount+2)*this.imgWidth)
+    // }
+
+    // _Carousel.prototype.playN = function(){
+    //   var _this = this
+    //   this.$next.click(function(){
+    //     _this.$imgs.animate({'left': '-=' + _this.imgWidth},function(){
+    //       _this.idx++
+    //       _this.$span.eq(_this.idx).addClass('active').siblings().removeClass('active')
+    //       if(_this.idx === _this.imgCount){
+    //         _this.idx = 0
+    //         _this.$imgs.css('left',-_this.imgWidth)
+    //       }
+    //     })
+    //   })
+    // }
+
+    // _Carousel.prototype.playL = function(){
+    //   var _this = this
+    //   this.$left.click(function(){
+    //     _this.$imgs.animate({'left': '+=' + _this.imgWidth},function(){
+    //       _this.idx--
+    //       _this.$span.eq(_this.idx).addClass('active').siblings().removeClass('active')
+    //       if(_this.idx < 0){
+    //         _this.idx = _this.imgCount - 1
+    //         _this.$imgs.css('left',-_this.imgWidth*_this.imgCount)
+    //       }
+    //     })
+    //   })
+    // }
+
+    // _Carousel.prototype.play = function(){
+    //   var _this = this
+    //   this.$span.click(function(){
+    //     _this.idx = $(this).index()
+    //     $(this).addClass('active').siblings().removeClass('active')
+    //     _this.$imgs.animate({'left': -_this.imgWidth*(_this.idx+1)})
+    //   })
+    // }
+
+    // var carousel1 = new Carousel($('.wrap').eq(0))
+    // var carousel2 = new Carousel($('.wrap').eq(1))
+
+    var carousel = (function(){
+      function _Carousel(ct){
+      this.init(ct)
+      this.bind()
+      }
+
+      _Carousel.prototype.init = function(ct){
+        this.ct = ct
+        this.$imgs = this.ct.find('.imgs')
+        this.$img = this.ct.find('li')
+        this.$left = this.ct.find('.left')
+        this.$next = this.ct.find('.next')
+        this.$span = this.ct.find('.btns > span')
+        this.imgCount = this.$img.length
+        this.imgWidth = this.$img.width()
+        this.idx = 0
+      }
+
+      _Carousel.prototype.bind = function(){
+        this.imgAdd()
+        this.playN()
+        this.playL()
+        this.play()
+      }
+
+      _Carousel.prototype.imgAdd = function(){
+        this.$imgs.append(this.$img.eq(0).clone())
+        this.$imgs.prepend(this.$img.eq(this.imgCount - 1).clone())
+        this.$imgs.css('width',(this.imgCount+2)*this.imgWidth)
+      }
+
+      _Carousel.prototype.playN = function(){
+        var _this = this
+        this.$next.click(function(){
+          _this.$imgs.animate({'left': '-=' + _this.imgWidth},function(){
+            _this.idx++
+            _this.$span.eq(_this.idx).addClass('active').siblings().removeClass('active')
+            if(_this.idx === _this.imgCount){
+              _this.idx = 0
+              _this.$imgs.css('left',-_this.imgWidth)
+            }
+          })
+        })
+      }
+
+      _Carousel.prototype.playL = function(){
+        var _this = this
+        this.$left.click(function(){
+          _this.$imgs.animate({'left': '+=' + _this.imgWidth},function(){
+            _this.idx--
+            _this.$span.eq(_this.idx).addClass('active').siblings().removeClass('active')
+            if(_this.idx < 0){
+              _this.idx = _this.imgCount - 1
+              _this.$imgs.css('left',-_this.imgWidth*_this.imgCount)
+            }
+          })
+        })
+      }
+
+      _Carousel.prototype.play = function(){
+        var _this = this
+        this.$span.click(function(){
+          _this.idx = $(this).index()
+          $(this).addClass('active').siblings().removeClass('active')
+          _this.$imgs.animate({'left': -_this.imgWidth*(_this.idx+1)})
+        })
+      }
+      
+      return {
+        init: function($ct){
+          $ct.each(function(idx,node){
+            new _Carousel($(node))
+          })
+        }
+      }
+    })()
+
+    carousel.init($('.wrap'))
+  </script>
 </body>
 </html>
