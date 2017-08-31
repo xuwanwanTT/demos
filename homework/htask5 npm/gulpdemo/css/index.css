@@ -1,0 +1,12 @@
+p {
+  color: red;
+  background: green;
+  font-size: 22px;
+  text-align: center;
+}
+
+.show {
+  width: 400px;
+  margin: 0 auto;
+}
+

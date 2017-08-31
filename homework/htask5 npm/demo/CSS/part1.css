@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clearfixed::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.part1 {
+  background: yellow;
+  height: 600px;
+}
+
+.view {
+  width: 600px;
+  height: 400px;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-top: 50px;
+  position: relative;
+}
+
+.part1 > .view > .imgCt {
+  width: 1800px;
+  height: 400px;
+  position: absolute;
+  left: -600px;
+}
+
+.part1 > .view > .imgCt > li {
+  float: left;
+}
+
+.part1 > .view > .imgCt > li > img {
+  width: 600px;
+  height: 400px;
+}
+
+.part1 > .button > .ret {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 26px;
+  text-align: center;
+  background: #eee;
+  opacity: .7;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  margin-left: -290px;
+  top: 230px;
+}
+
+.part1 > .button > .next {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 26px;
+  text-align: center;
+  background: #eee;
+  opacity: .7;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  margin-left: 250px;
+  top: 230px;
+}
+
+.part1 > .button > p:hover {
+  opacity: 1;
+}
+
+.part1 > .panels > h2 {
+  padding-top: 60px;
+  text-align: center;
+  display: none;
+}
+
+.part1 > .panels > .active {
+  display: block;
+  transition: 1s;
+}
