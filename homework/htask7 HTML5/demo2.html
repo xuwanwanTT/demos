@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background: pink;
+    }
+
+    .loading {
+      width: 300px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+
+    @keyframes loading1 {
+      0% {
+        box-shadow: 0 0 white;
+      }
+      20% {
+        box-shadow: 0 -20px white;
+        height: 60px;
+      }
+      100% {
+        height: 40px;
+        box-shadow: 0 0 white;
+      }
+    }
+
+    .load1 {
+      width: 10px;
+      height: 40px;
+      background: white;
+      position: relative;
+      animation: 1s loading1 infinite;
+    }
+
+    .load1::after {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 40px;
+      background: white;
+      position: absolute;
+      left: 40px;
+      animation: 1s .4s loading1 infinite;
+    }
+
+    .load1::before {
+      content: '';
+      display: block;
+      width: 10px;
+      height: 40px;
+      background: white;
+      position: absolute;
+      left: 20px;
+      animation: 1s .2s loading1 infinite;
+    }
+
+    @keyframes load2 {
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    .load2 {
+      width: 80px;
+      height: 80px;
+      border: 10px solid rgba(255,0,0,.3);
+      border-radius: 50%;
+      border-top: 10px solid red;
+      animation: 1s load2 infinite linear;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="load1"></div>
+  </div>
+
+  <div class="loading">
+    <div class="load2"></div>
+  </div>
+</body>
+</html>

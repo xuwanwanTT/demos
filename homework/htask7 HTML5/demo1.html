@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html,body {
+      height: 100%
+    }
+    div {
+      background: url(https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1504681395&di=5fdfe0d3259a81d8836fb8c617a27b0d&src=http://pic23.photophoto.cn/20120530/0020033092420808_b.jpg) no-repeat;
+      background-size: cover;
+      height: 100%;
+    }
+
+    div::after {
+      content: '';
+      display: block;
+      background:  linear-gradient(to right,rgba(255,255,255,.5),rgba(255,0,0,.7));
+      width: 50%;
+      height: 100%;
+      position: absolute;
+    }
+    div::before {
+      content: '';
+      display: block;
+      background: linear-gradient(to right,rgba(0,0,255,.5),rgba(255,255,255,.5));
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
